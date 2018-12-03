@@ -1,0 +1,11 @@
+# Object files
+*.o
+
+# Libraries
+*.a
+
+# Executable
+*.out
+
+# Debug files
+*.dSYM

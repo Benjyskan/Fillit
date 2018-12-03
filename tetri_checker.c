@@ -6,7 +6,7 @@
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/02 20:37:49 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/03 17:27:21 by penzo            ###   ########.fr       */
+/*   Updated: 2018/12/03 20:22:41 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,20 +101,20 @@ int		main(int ac, char **av)
 	if (ac != 2)
 	{
 		ft_putendl("usage: ./fillit [file]");
-		return (0);
+		return (1);
 	}
 	fd = open(av[1], O_RDONLY);
 	if (!format_check(fd))
 	{
 		ft_putendl("error");
-		return (0);
+		return (1);
 	}
 	close(fd);
 	fd = open(av[1], O_RDONLY);
 	if (!pieces_check(fd))
 	{
 		ft_putendl("error");
-		return (0);
+		return (1);
 	}
-	return (1);
+	return (0);
 }

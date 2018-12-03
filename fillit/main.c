@@ -31,11 +31,17 @@ int		main(int ac, char **av)
 		ft_putendl_fd("error: bad format", 2);
 		return (1);
 	}
+	close(fd);
+	if (!(fd = open(av[1], O_RDONLY)))
+	{
+		ft_putendl_fd("error: while opening file", 2);
+		return (1);
+	}
 	if (!pieces_check(fd))
 	{
 		ft_putendl_fd("error: one or more pieces are invalid", 2);
 		return (1);
 	}
-
+	close(fd);
 	return (0);
 }

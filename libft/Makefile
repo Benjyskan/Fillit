@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/15 11:06:32 by amalsago          #+#    #+#              #
-#    Updated: 2018/12/04 13:10:32 by amalsago         ###   ########.fr        #
+#    Updated: 2018/12/04 16:39:07 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,7 +78,7 @@ SRC=ft_memset.c			\
 	ft_isseparator.c	\
 	ft_strnew2d.c		\
 	ft_swap.c
-OBJ=$(SRC:.c=.o) 
+OBJ=$(SRC:.c=.o)
 HEADER=libft.h
 
 all: $(NAME)

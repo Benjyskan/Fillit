@@ -6,7 +6,7 @@
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 17:23:25 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/04 18:39:49 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/04 20:49:04 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ typedef struct		s_xy
 {
 	int				x;
 	int				y;
+	int				original;
 }					t_xy;
 
 typedef struct		s_tetri_coo
@@ -30,6 +31,7 @@ typedef struct		s_tetri_coo
 }					t_tetri_coo;
 
 unsigned int		format_check(int fd);
-unsigned int		pieces_check(int fd);
+unsigned int		pieces_check(int fd, int tetri_cnt);
+t_tetri_coo			fill_tetri_coo(char *tetri);
 
 #endif

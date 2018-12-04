@@ -6,13 +6,13 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 20:50:33 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/04 18:49:59 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/04 22:06:42 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include <unistd.h>
-
+#include <stdio.h>
 /*
 ** format_check() allows to validate the input file and it retruns number
 ** of pieces
@@ -22,38 +22,58 @@
 **	- only 4 # per tetri
 */
 
-unsigned int		format_check(int fd)
+unsigned int		bloc_cnt(char *buff)
 {
 	unsigned int	i;
-	unsigned int	tetri_cnt;
 	unsigned int	bloc_cnt;
+	
+	i = 0;
+	bloc_cnt = 0;
+	while (i < 20)
+	{
+		if (i % 5 == 4)
+		{
+			if (buff[i] != '\n')
+				return (0);
+		}
+		else if (buff[i] != '.' && buff[i] != '#')
+			return (0);
+		if (buff[i] == '#')
+			bloc_cnt++;
+		i++;
+	}
+	if (bloc_cnt != 4)
+		return (0);
+	return (1);
+}
+
+
+unsigned int		format_check(int fd)
+{
+	unsigned int	tetri_cnt;
+
 	char			buff[21];
+	int				y;
 
 	tetri_cnt = 0;
-	while (read(fd, buff, 21) > 0)
+	while ((y = read(fd, buff, 21)))
 	{
+		if (y == 20)
+		{
+			if(!bloc_cnt(buff))
+				return (0);
+			tetri_cnt++;
+			break ;
+		}
 		if (buff[20] != '\n')
 			return (0);
-		i = 0;
-		bloc_cnt = 0;
-		while (i < 20)
-		{
-			if (i % 5 == 4)
-			{
-				if (buff[i] != '\n')
-					return (0);
-			}
-			else if (buff[i] != '.' && buff[i] != '#')
-				return (0);
-			if (buff[i] == '#')
-				bloc_cnt++;
-			i++;
-		}
-		if (bloc_cnt != 4)
+		if(!bloc_cnt(buff))
 			return (0);
 		tetri_cnt++;
 	}
-	return (tetri_cnt);
+	if (y == 20)
+		return (tetri_cnt);
+	return (0);
 }
 
 /*
@@ -87,18 +107,31 @@ int					isvalid_tetri(char *tetri)
 	}
 	if (count < 6)
 		return (0);
-	ft_putstr("side touching: "); ft_putnbr(count); ft_putchar('\n');
 	return (1);
 }
 
-unsigned int		pieces_check(int fd)
+unsigned int		pieces_check(int fd, int tetri_cnt)
 {
+	unsigned		i;
+	t_tetri_coo		*tab;
 	char			buff[21];
 
+	if (!(tab = (t_tetri_coo *)malloc(sizeof(t_tetri_coo) * tetri_cnt)))
+	{
+		ft_putendl_fd("error: while malloc tab", 1);
+		return (1);
+	}
+	i = 0;
 	while (read(fd, buff, 21) > 0)
 	{
-		isvalid_tetri(buff);
-		fill_tetri_coo(buff);
+		if (!isvalid_tetri(buff))
+			return (0);
+		tab[i] = fill_tetri_coo(buff);
+		i++;
 	}
+	printf("x=%d y=%d\n\n", tab[2].p0.x, tab[2].p0.y);
+	printf("x=%d y=%d\n\n", tab[2].p1.x, tab[2].p1.y);
+	printf("x=%d y=%d\n\n", tab[2].p2.x, tab[2].p2.y);
+	printf("x=%d y=%d\n\n", tab[2].p3.x, tab[2].p3.y);
 	return (1);
 }

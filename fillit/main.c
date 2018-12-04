@@ -6,11 +6,12 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 20:29:34 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/03 20:57:02 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/04 11:32:29 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+#include <fcntl.h>
 
 int		main(int ac, char **av)
 {

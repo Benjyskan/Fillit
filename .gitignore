@@ -12,3 +12,6 @@
 
 # Swp files
 *.swp
+
+# Precompiled header
+*.h.gch

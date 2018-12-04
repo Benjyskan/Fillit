@@ -6,16 +6,16 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/15 11:06:32 by amalsago          #+#    #+#              #
-#    Updated: 2018/12/04 16:58:27 by amalsago         ###   ########.fr        #
+#    Updated: 2018/12/04 18:32:32 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC=gcc
 CFLAGS=-Wall -Wextra -Werror
-SRC=fillit/main.c		\
-	fillit/checks.c	
+SRC=src/main.c		\
+	src/checks.c	
 OBJ=$(SRC:.c=.o) 
-NAME=fillit.out
+NAME=fillit
 HEADER=fillit/fillit.h
 LIBFT=libft/libft.a
 
@@ -34,4 +34,7 @@ fclean: clean
 re: fclean all
 
 norm:
-	norminette $(SRC) $(HEADER) 
+	norminette $(SRC) $(HEADER)
+
+do: $(NAME)
+	./fillit samples/valid_samples/valid_26

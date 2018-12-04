@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 20:50:33 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/04 11:37:25 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/04 17:05:01 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,22 @@
 #include <unistd.h>
 
 /*
-** First check:
-** -line length
-** -tetri separate by 1 line
-** -only 4 # per tetri
+** format_check() allows to validate the input file and it retruns number
+** of pieces
+** It checks:
+**	- line length
+**	- tetri separate by 1 line
+**	- only 4 # per tetri
 */
 
 unsigned int		format_check(int fd)
 {
 	unsigned int	i;
+	unsigned int	tetri_cnt;
 	unsigned int	bloc_cnt;
 	char			buff[21];
 
+	tetri_cnt = 0;
 	while (read(fd, buff, 21) > 0)
 	{
 		if (buff[20] != '\n')
@@ -47,8 +51,9 @@ unsigned int		format_check(int fd)
 		}
 		if (bloc_cnt != 4)
 			return (0);
+		tetri_cnt++;
 	}
-	return (1);
+	return (tetri_cnt);
 }
 
 /*

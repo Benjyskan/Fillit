@@ -6,6 +6,7 @@
 
 # Executable
 *.out
+fillit
 
 # Debug files
 *.dSYM

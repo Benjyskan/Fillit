@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/04 18:49:11 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/04 20:26:46 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/05 15:26:20 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ t_tetri_coo		fill_tetri_coo(char *str)
 			tetri.p1.y = tetri.p1.original / 5;
 			check++;
 		}
-		else if (check == 2 && str[i] == '#')  
+		else if (check == 2 && str[i] == '#')
 		{
 			tetri.p2.original = i - tetri.p0.original;
 			tetri.p2.x = tetri.p2.original % 5;

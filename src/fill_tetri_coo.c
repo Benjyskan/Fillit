@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/04 18:49:11 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/05 15:26:20 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/05 16:48:24 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 t_tetri_coo		fill_tetri_coo(char *str)
 {
-	int				i;
-	int				check;
+	unsigned		i;
+	unsigned		check;
 	t_tetri_coo		tetri;
 
 	i = 0;

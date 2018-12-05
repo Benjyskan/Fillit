@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 20:50:33 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/05 14:32:44 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/05 14:35:22 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,7 @@ unsigned int		bloc_cnt(char *buff)
 			bloc_cnt++;
 		i++;
 	}
-	if (bloc_cnt != 4)
-		return (0);
-	return (1);
+	return (bloc_cnt == 4);
 }
 
 

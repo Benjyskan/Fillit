@@ -6,10 +6,11 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 20:50:33 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/04 22:06:42 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/05 14:32:44 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <fcntl.h>
 #include "fillit.h"
 #include <unistd.h>
 #include <stdio.h>
@@ -48,13 +49,18 @@ unsigned int		bloc_cnt(char *buff)
 }
 
 
-unsigned int		format_check(int fd)
+unsigned int		format_check(char *av)
 {
+	int				fd;
+	unsigned int	y;
 	unsigned int	tetri_cnt;
-
 	char			buff[21];
-	int				y;
-
+	
+	if (!(fd = open(av, O_RDONLY)))
+	{
+		ft_putendl_fd("error: opening file", 1);
+		return (0);
+	}
 	tetri_cnt = 0;
 	while ((y = read(fd, buff, 21)))
 	{
@@ -71,6 +77,7 @@ unsigned int		format_check(int fd)
 			return (0);
 		tetri_cnt++;
 	}
+	close (fd);
 	if (y == 20)
 		return (tetri_cnt);
 	return (0);
@@ -81,10 +88,10 @@ unsigned int		format_check(int fd)
 ** by counting the number of touching sides
 */
 
-int					isvalid_tetri(char *tetri)
+unsigned			isvalid_tetri(char *tetri)
 {
-	unsigned int	i;
-	unsigned int	count;
+	unsigned		i;
+	unsigned		count;
 
 	i = 0;
 	count = 0;
@@ -110,16 +117,22 @@ int					isvalid_tetri(char *tetri)
 	return (1);
 }
 
-unsigned int		pieces_check(int fd, int tetri_cnt)
+unsigned int		pieces_check(char *av, int tetri_cnt)
 {
+	int				fd;
 	unsigned		i;
-	t_tetri_coo		*tab;
 	char			buff[21];
+	t_tetri_coo		*tab;
 
+	if (!(fd = open(av, O_RDONLY)))
+	{
+		ft_putendl_fd("error: opening file", 1);
+		return (0);
+	}
 	if (!(tab = (t_tetri_coo *)malloc(sizeof(t_tetri_coo) * tetri_cnt)))
 	{
 		ft_putendl_fd("error: while malloc tab", 1);
-		return (1);
+		return (0);
 	}
 	i = 0;
 	while (read(fd, buff, 21) > 0)
@@ -133,5 +146,6 @@ unsigned int		pieces_check(int fd, int tetri_cnt)
 	printf("x=%d y=%d\n\n", tab[2].p1.x, tab[2].p1.y);
 	printf("x=%d y=%d\n\n", tab[2].p2.x, tab[2].p2.y);
 	printf("x=%d y=%d\n\n", tab[2].p3.x, tab[2].p3.y);
+	close (fd);
 	return (1);
 }

@@ -6,13 +6,14 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 20:50:33 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/05 14:55:51 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/05 15:31:06 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include <unistd.h>
 #include <stdio.h>
+
 /*
 ** format_check() allows to validate the input file and it retruns number
 ** of pieces
@@ -22,11 +23,11 @@
 **	- only 4 # per tetri
 */
 
-unsigned		bloc_cnt(char *buff)
+unsigned			bloc_cnt(char *buff)
 {
-	unsigned	i;
-	unsigned	bloc_cnt;
-	
+	unsigned		i;
+	unsigned		bloc_cnt;
+
 	i = 0;
 	bloc_cnt = 0;
 	while (i < 20)
@@ -45,35 +46,32 @@ unsigned		bloc_cnt(char *buff)
 	return (bloc_cnt == 4);
 }
 
-
-unsigned		format_check(char *av)
+unsigned			format_check(char *av)
 {
-	int			fd;
-	unsigned	y;
-	unsigned	tetri_cnt;
-	char		buff[21];
-	
+	int				fd;
+	unsigned		y;
+	unsigned		tetri_cnt;
+	char			buff[21];
+
 	fd = open_sample(av);
 	tetri_cnt = 0;
 	while ((y = read(fd, buff, 21)))
 	{
 		if (y == 20)
 		{
-			if(!bloc_cnt(buff))
+			if (!bloc_cnt(buff))
 				return (0);
 			tetri_cnt++;
 			break ;
 		}
 		if (buff[20] != '\n')
 			return (0);
-		if(!bloc_cnt(buff))
+		if (!bloc_cnt(buff))
 			return (0);
 		tetri_cnt++;
 	}
-	close (fd);
-	if (y == 20)
-		return (tetri_cnt);
-	return (0);
+	close(fd);
+	return (y == 20 ? tetri_cnt : 0);
 }
 
 /*
@@ -103,7 +101,7 @@ unsigned			isvalid_tetri(char *tetri)
 			if (i > 4 && tetri[i - 5] == '#')
 				count++;
 		}
-		i++;	
+		i++;
 	}
 	if (count < 6)
 		return (0);
@@ -131,10 +129,6 @@ unsigned			pieces_check(char *av, int tetri_cnt)
 		tab[i] = fill_tetri_coo(buff);
 		i++;
 	}
-	printf("x=%d y=%d\n\n", tab[2].p0.x, tab[2].p0.y);
-	printf("x=%d y=%d\n\n", tab[2].p1.x, tab[2].p1.y);
-	printf("x=%d y=%d\n\n", tab[2].p2.x, tab[2].p2.y);
-	printf("x=%d y=%d\n\n", tab[2].p3.x, tab[2].p3.y);
-	close (fd);
+	close(fd);
 	return (1);
 }

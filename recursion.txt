@@ -1,0 +1,7 @@
+board starting size = sqrt(# of tetrominoes * 4(bloc))
+placing formula: tab[x + tetri.p[bloc_cnt].x, y + tetri.p[bloc_cnt].y]
+
+recursion priority:
+-check if current tetri is placable: top left;
+-place the next tetris
+--if can't: replace the previous one formula++;

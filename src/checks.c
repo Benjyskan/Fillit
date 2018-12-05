@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 20:50:33 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/05 16:58:17 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/05 17:16:02 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,5 +138,9 @@ unsigned			pieces_check(char *av, int tetri_cnt)
 		i++;
 	}
 	close(fd);
+	printf("x=%d y=%d\n\n", tab[0].p[0].x, tab[0].p[0].y);
+	printf("x=%d y=%d\n\n", tab[0].p[1].x, tab[0].p[1].y);
+	printf("x=%d y=%d\n\n", tab[0].p[2].x, tab[0].p[2].y);
+	printf("x=%d y=%d\n\n", tab[0].p[3].x, tab[0].p[3].y);
 	return (1);
 }

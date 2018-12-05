@@ -6,11 +6,10 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 20:50:33 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/05 14:43:31 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/05 14:55:51 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fcntl.h>
 #include "fillit.h"
 #include <unistd.h>
 #include <stdio.h>
@@ -54,11 +53,7 @@ unsigned		format_check(char *av)
 	unsigned	tetri_cnt;
 	char		buff[21];
 	
-	if (!(fd = open(av, O_RDONLY)))
-	{
-		ft_putendl_fd("error: opening file", 1);
-		return (0);
-	}
+	fd = open_sample(av);
 	tetri_cnt = 0;
 	while ((y = read(fd, buff, 21)))
 	{
@@ -122,11 +117,7 @@ unsigned			pieces_check(char *av, int tetri_cnt)
 	char			buff[21];
 	t_tetri_coo		*tab;
 
-	if (!(fd = open(av, O_RDONLY)))
-	{
-		ft_putendl_fd("error: opening file", 1);
-		return (0);
-	}
+	fd = open_sample(av);
 	if (!(tab = (t_tetri_coo *)malloc(sizeof(t_tetri_coo) * tetri_cnt)))
 	{
 		ft_putendl_fd("error: while malloc tab", 1);

@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/15 11:06:32 by amalsago          #+#    #+#              #
-#    Updated: 2018/12/04 20:10:01 by amalsago         ###   ########.fr        #
+#    Updated: 2018/12/05 14:43:58 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,3 @@ re: fclean all
 
 norm:
 	norminette $(SRC) $(HEADER)
-
-do: $(NAME)
-	./fillit samples/valid_samples/valid_26

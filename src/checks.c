@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 20:50:33 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/05 14:35:22 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/05 14:43:31 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@
 **	- only 4 # per tetri
 */
 
-unsigned int		bloc_cnt(char *buff)
+unsigned		bloc_cnt(char *buff)
 {
-	unsigned int	i;
-	unsigned int	bloc_cnt;
+	unsigned	i;
+	unsigned	bloc_cnt;
 	
 	i = 0;
 	bloc_cnt = 0;
@@ -47,12 +47,12 @@ unsigned int		bloc_cnt(char *buff)
 }
 
 
-unsigned int		format_check(char *av)
+unsigned		format_check(char *av)
 {
-	int				fd;
-	unsigned int	y;
-	unsigned int	tetri_cnt;
-	char			buff[21];
+	int			fd;
+	unsigned	y;
+	unsigned	tetri_cnt;
+	char		buff[21];
 	
 	if (!(fd = open(av, O_RDONLY)))
 	{
@@ -115,7 +115,7 @@ unsigned			isvalid_tetri(char *tetri)
 	return (1);
 }
 
-unsigned int		pieces_check(char *av, int tetri_cnt)
+unsigned			pieces_check(char *av, int tetri_cnt)
 {
 	int				fd;
 	unsigned		i;

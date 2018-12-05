@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 20:50:33 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/05 15:37:15 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/05 16:45:21 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,8 @@
 #include <stdio.h>
 
 /*
-** format_check() allows to validate the input file and it retruns number
-** of pieces
-** It checks:
-**	- line length
-**	- tetri separate by 1 line
-**	- only 4 # per tetri
+** bloc_cnt() allows to count if the number of blocs in tetriminos is equal to 4
+** If it equal, function return 1 otherwise 0
 */
 
 unsigned			bloc_cnt(char *buff)
@@ -45,6 +41,12 @@ unsigned			bloc_cnt(char *buff)
 	}
 	return (bloc_cnt == 4);
 }
+
+/*
+** format_check() allows to validate the input file and it retruns number
+** of pieces. It checks the length of the line, if tetri are separated by 1
+** newline and if there are only 4 sharp (#) per tetriminos by bloc_cnt()
+*/
 
 unsigned			format_check(char *av)
 {
@@ -75,8 +77,7 @@ unsigned			format_check(char *av)
 }
 
 /*
-** Check tetriminos shapes
-** by counting the number of touching sides
+** Check tetriminos shapes by counting the number of touching sides
 */
 
 unsigned			isvalid_tetri(char *tetri)
@@ -107,6 +108,11 @@ unsigned			isvalid_tetri(char *tetri)
 		return (0);
 	return (1);
 }
+
+/*
+** pieces_check() verify if pieces are valid and allocate an array to stock
+** each piece by calling fill_tetri_coo()
+*/
 
 unsigned			pieces_check(char *av, int tetri_cnt)
 {

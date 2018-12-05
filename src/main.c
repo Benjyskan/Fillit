@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 20:29:34 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/05 14:53:35 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/05 15:13:31 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int				main(int ac, char **av)
 		ft_putendl_fd("usage: ./fillit filename", 1);
 		return (1);
 	}
-	
 	if (!(tetri_cnt = format_check(av[1])))
 	{
 		ft_putendl_fd("error: bad format", 1);

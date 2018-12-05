@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 20:50:33 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/05 16:45:21 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/05 16:58:17 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,8 @@ unsigned			format_check(char *av)
 	unsigned		tetri_cnt;
 	char			buff[21];
 
-	fd = open_sample(av);
+	if (!(fd = open_sample(av)))
+		return (0);
 	tetri_cnt = 0;
 	while ((y = read(fd, buff, 21)) > 0)
 	{
@@ -121,7 +122,8 @@ unsigned			pieces_check(char *av, int tetri_cnt)
 	char			buff[21];
 	t_tetri_coo		*tab;
 
-	fd = open_sample(av);
+	if (!(fd = open_sample(av)))
+		return (0);
 	if (!(tab = (t_tetri_coo *)malloc(sizeof(t_tetri_coo) * tetri_cnt)))
 	{
 		ft_putendl_fd("error: while malloc tab", 1);

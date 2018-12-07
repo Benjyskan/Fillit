@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 20:50:33 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/07 12:26:53 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/07 14:48:25 by penzo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,21 +127,21 @@ unsigned			isvalid_tetri(char *tetri)
 
 /*
 ** pieces_check() verify if pieces are valid and allocate an array to stock
-** each piece by calling fill_tetri_coo()
+** each pieces by calling fill_tetri_coo()
 */
 
-unsigned			pieces_check(char *filename, unsigned tetri_cnt)
+t_tetri_coo		*pieces_check(char *filename, unsigned tetri_cnt)
 {
 	int				fd;
 	unsigned		i;
 	char			buff[21];
-	t_tetri_coo		*tab;
+	t_tetri_coo		*tetri_lst;
 
 	if (!(fd = open_sample(filename)))
 		return (0);
-	if (!(tab = (t_tetri_coo *)malloc(sizeof(t_tetri_coo) * tetri_cnt)))
+	if (!(tetri_lst = (t_tetri_coo *)malloc(sizeof(t_tetri_coo) * tetri_cnt)))
 	{
-		ft_putendl_fd("error: while malloc tab", 1);
+		ft_putendl_fd("error: while malloc tetri_lst", 1);
 		return (0);
 	}
 	i = 0;
@@ -149,13 +149,13 @@ unsigned			pieces_check(char *filename, unsigned tetri_cnt)
 	{
 		if (!isvalid_tetri(buff))
 			return (0);
-		tab[i] = fill_tetri_coo(buff);
-		printf("x=%d y=%d\n\n", tab[i].p[0].x, tab[i].p[0].y);
-		printf("x=%d y=%d\n\n", tab[i].p[1].x, tab[i].p[1].y);
-		printf("x=%d y=%d\n\n", tab[i].p[2].x, tab[i].p[2].y);
-		printf("x=%d y=%d\n\n\n", tab[i].p[3].x, tab[i].p[3].y);
+		tetri_lst[i] = fill_tetri_coo(buff);
+		/*printf("x=%d y=%d\n\n", tetri_lst[i].p[0].x, tetri_lst[i].p[0].y);
+		printf("x=%d y=%d\n\n", tetri_lst[i].p[1].x, tetri_lst[i].p[1].y);
+		printf("x=%d y=%d\n\n", tetri_lst[i].p[2].x, tetri_lst[i].p[2].y);
+		printf("x=%d y=%d\n\n\n", tetri_lst[i].p[3].x, tetri_lst[i].p[3].y);*/
 		i++;
 	}
 	close(fd);
-	return (1);
+	return (tetri_lst);
 }

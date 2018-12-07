@@ -6,7 +6,7 @@
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 12:54:58 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/07 20:28:30 by penzo            ###   ########.fr       */
+/*   Updated: 2018/12/07 20:55:26 by penzo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int		is_tetri_placeable(t_tetri_coo tetri_lst, unsigned x, unsigned y, unsigned 
 	return (1);
 }
 
-void	fill_square(t_tetri_coo *tetri_lst, char ***tab, unsigned length)
+void	fill_square(t_tetri_coo *tetri_lst, char ***tab, unsigned length, unsigned tetri_total)
 {
 	unsigned	x;
 	unsigned	y;
@@ -52,14 +52,14 @@ void	fill_square(t_tetri_coo *tetri_lst, char ***tab, unsigned length)
 	bloc_cnt = -1;
 	tetri_cnt = 0;
 	y = -1;
-	while (++y < length)
+	while (++y <= length)
 	{
 		x = -1;
 		while (++x <= length)
 		{
 			if (is_tetri_placeable(tetri_lst[tetri_cnt], x, y, length, tab))
 			{
-				printf("in tetri_placeable, x: %d, y: %d\n", x, y);
+				//printf("in tetri_placeable, x: %d, y: %d\n", x, y);
 				while (++bloc_cnt < 4)
 					tab[0][y + tetri_lst[tetri_cnt].p[bloc_cnt].y]
 						[x + tetri_lst[tetri_cnt].p[bloc_cnt].x] = (char)c;
@@ -68,15 +68,15 @@ void	fill_square(t_tetri_coo *tetri_lst, char ***tab, unsigned length)
 				x = -1;
 				y = -1;
 				c++;
-				while (i < length)
-				{
-					printf("%s\n", tab[0][i]);
-					i++;
-				}
-				ft_putendl("");
 				i = 0;
 			}
 		}
 	}
+	if (tetri_cnt < tetri_total)
+	{
+		resize_square(tab, length);
+		fill_square(tetri_lst, &tab, length, tetri_total);
+	}
+
 	return ;
 }

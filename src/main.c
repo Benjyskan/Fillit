@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 20:29:34 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/07 20:21:13 by penzo            ###   ########.fr       */
+/*   Updated: 2018/12/07 20:45:21 by penzo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,12 @@ int				main(int ac, char **av)
 	length = ft_sqrt_up(tetri_cnt * 4);
 	tab = create_square(length);
 	//tab = resize_square(tab, length);
-	fill_square(tetri_lst, &tab, length);
+	fill_square(tetri_lst, &tab, length, tetri_cnt);
 
-	/*while (i < length)
+	while (i < length)
 	{
 		printf("%s\n", tab[i]);
 		i++;
-	}*/
+	}
 	return (0);
 }

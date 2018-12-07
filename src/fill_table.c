@@ -6,7 +6,7 @@
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 12:54:58 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/07 20:21:09 by penzo            ###   ########.fr       */
+/*   Updated: 2018/12/07 20:28:30 by penzo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	fill_square(t_tetri_coo *tetri_lst, char ***tab, unsigned length)
 				while (++bloc_cnt < 4)
 					tab[0][y + tetri_lst[tetri_cnt].p[bloc_cnt].y]
 						[x + tetri_lst[tetri_cnt].p[bloc_cnt].x] = (char)c;
-				bloc_cnt = 0;
+				bloc_cnt = -1;
 				tetri_cnt++;
 				x = -1;
 				y = -1;

@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 20:50:33 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/07 09:29:54 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/07 12:26:53 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,14 +63,14 @@ unsigned			bloc_cnt(char *buff)
 ** newline and if there are only 4 sharp (#) per tetriminos by bloc_cnt()
 */
 
-unsigned			format_check(char *av)
+unsigned			format_check(char *filename)
 {
 	int				fd;
 	unsigned		y;
 	unsigned		tetri_cnt;
 	char			buff[21];
 
-	if (!(fd = open_sample(av)))
+	if (!(fd = open_sample(filename)))
 		return (0);
 	tetri_cnt = 0;
 	while ((y = read(fd, buff, 21)) > 0)
@@ -130,14 +130,14 @@ unsigned			isvalid_tetri(char *tetri)
 ** each piece by calling fill_tetri_coo()
 */
 
-unsigned			pieces_check(char *av, unsigned tetri_cnt)
+unsigned			pieces_check(char *filename, unsigned tetri_cnt)
 {
 	int				fd;
 	unsigned		i;
 	char			buff[21];
 	t_tetri_coo		*tab;
 
-	if (!(fd = open_sample(av)))
+	if (!(fd = open_sample(filename)))
 		return (0);
 	if (!(tab = (t_tetri_coo *)malloc(sizeof(t_tetri_coo) * tetri_cnt)))
 	{

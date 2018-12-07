@@ -6,14 +6,14 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/15 11:06:32 by amalsago          #+#    #+#              #
-#    Updated: 2018/12/07 17:01:42 by penzo            ###   ########.fr        #
+#    Updated: 2018/12/07 19:28:15 by penzo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC=gcc
 #delete -g plz
 #CFLAGS=-Wall -Wextra -Werror -g
-CFLAGS=-Wall -Wextra -g
+CFLAGS=-Wall -Wextra  -g
 SRC=src/main.c				\
 	src/checks.c			\
 	src/fill_tetri_coo.c	\

@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 20:50:33 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/05 18:46:42 by penzo            ###   ########.fr       */
+/*   Updated: 2018/12/07 09:29:54 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,7 +130,7 @@ unsigned			isvalid_tetri(char *tetri)
 ** each piece by calling fill_tetri_coo()
 */
 
-unsigned			pieces_check(char *av, int tetri_cnt)
+unsigned			pieces_check(char *av, unsigned tetri_cnt)
 {
 	int				fd;
 	unsigned		i;

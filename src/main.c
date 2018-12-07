@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 20:29:34 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/07 17:08:19 by penzo            ###   ########.fr       */
+/*   Updated: 2018/12/07 20:21:13 by penzo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int				main(int ac, char **av)
 	unsigned	tetri_cnt;
 	unsigned	length;
 	t_tetri_coo	*tetri_lst;
-	//int			i = 1;//tejme
+	int			i = 0;//tejme
 	char		**tab;
 
 	if (ac != 2)
@@ -46,11 +46,10 @@ int				main(int ac, char **av)
 	//tab = resize_square(tab, length);
 	fill_square(tetri_lst, &tab, length);
 
-	printf("%s\n", tab[0]);
-	printf("%s\n", tab[1]);
-	printf("%s\n", tab[2]);
-	printf("%s\n", tab[3]);
-	printf("%s\n", tab[4]);
-	printf("%s\n", tab[5]);
+	/*while (i < length)
+	{
+		printf("%s\n", tab[i]);
+		i++;
+	}*/
 	return (0);
 }

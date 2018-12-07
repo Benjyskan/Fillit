@@ -6,7 +6,7 @@
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 17:23:25 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/05 17:06:31 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/07 09:30:23 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct		s_tetri_coo
 
 int					open_sample(char *av);
 unsigned int		format_check(char *av);
-unsigned int		pieces_check(char *av, int tetri_cnt);
+unsigned int		pieces_check(char *av, unsigned tetri_cnt);
 t_tetri_coo			fill_tetri_coo(char *tetri);
 
 #endif

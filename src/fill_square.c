@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fill_table.c                                       :+:      :+:    :+:   */
+/*   fill_square.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 12:54:58 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/08 11:14:16 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/08 12:03:45 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,7 @@ int		is_tetri_placeable(t_tetri_coo tetri_lst, unsigned x, unsigned y, unsigned 
 				&& y + tetri_lst.p[bloc_cnt].y >= 0
 				&& y + tetri_lst.p[bloc_cnt].y < length
 				&& tab[0][y + tetri_lst.p[bloc_cnt].y][x + tetri_lst.p[bloc_cnt].x] == '.')
-		{
-			//printf("char: %c\tx: %d, y: %d\n", tab[0][y][x], x, y);
 			bloc_cnt++;
-		}
 		else
 			return (0);
 	}
@@ -46,12 +43,11 @@ void	fill_square(t_tetri_coo *tetri_lst, char ***tab, unsigned length, unsigned 
 	unsigned	tetri_cnt;
 	unsigned	bloc_cnt;
 	unsigned	c;
-	int			i = 0;//tejme
 
-	c = 65;
+	c = 'A';
+	y = -1;
 	bloc_cnt = -1;
 	tetri_cnt = 0;
-	y = -1;
 	while (++y <= length)
 	{
 		x = -1;
@@ -68,7 +64,6 @@ void	fill_square(t_tetri_coo *tetri_lst, char ***tab, unsigned length, unsigned 
 				x = -1;
 				y = -1;
 				c++;
-				i = 0;
 			}
 		}
 	}
@@ -77,6 +72,4 @@ void	fill_square(t_tetri_coo *tetri_lst, char ***tab, unsigned length, unsigned 
 		resize_square(tab, length);
 		fill_square(tetri_lst, &tab, length, tetri_total);
 	}
-
-	return ;
 }

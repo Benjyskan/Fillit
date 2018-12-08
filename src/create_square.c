@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 12:55:42 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/08 11:17:02 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/08 11:59:35 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ char	**create_square(unsigned length)
 			return (NULL);
 		}
 	}
-	fill_w_point(&tab, length);
+	initialise(&tab, length);
 	return (tab);
 }
 
@@ -63,7 +63,7 @@ char	**resize_square(char **tab, unsigned length)
 	return (tab);
 }
 
-void	fill_w_point(char ***tab, unsigned length)
+void	initialise(char ***tab, unsigned length)
 {
 	unsigned	x;
 	unsigned	y;
@@ -77,5 +77,3 @@ void	fill_w_point(char ***tab, unsigned length)
 	}
 	return ;
 }
-
-//create_square(ft_sqrt_up(nb_tetri * 4);

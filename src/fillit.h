@@ -6,7 +6,7 @@
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 17:23:25 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/07 20:48:55 by penzo            ###   ########.fr       */
+/*   Updated: 2018/12/08 11:59:51 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ t_tetri_coo			fill_tetri_coo(char *tetri);
 char				**create_square(unsigned nb_tetri);
 unsigned			ft_sqrt_up(unsigned n);
 char				**resize_square(char **tab, unsigned length);
-void				fill_w_point(char ***tab, unsigned length);
+void				initialise(char ***tab, unsigned length);
 void				fill_square(t_tetri_coo *tetri_lst,
 					char ***tab, unsigned length, unsigned tetri_total);
 

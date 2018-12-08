@@ -6,7 +6,7 @@
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 12:54:58 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/08 18:12:35 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/08 18:23:23 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int			is_tetri_placeable(t_tetri_coo tetri_lst, int x, int y, int *length, char 
 	return (1);
 }
 
-void		fill_square(t_tetri_coo *tetri_lst, char ***tab, int *length, int tetri_total)
+void		fill_square(t_tetri_coo *tetri_lst, char ***tab, int *length, int total)
 {
 	int		x;
 	int		y;
@@ -67,9 +67,9 @@ void		fill_square(t_tetri_coo *tetri_lst, char ***tab, int *length, int tetri_to
 			}
 		}
 	}
-	if (tetri_cnt < tetri_total)
+	if (tetri_cnt < total)
 	{
 		resize_square(tab, length);
-		fill_square(tetri_lst, tab, length, tetri_total);
+		fill_square(tetri_lst, tab, length, total);
 	}
 }

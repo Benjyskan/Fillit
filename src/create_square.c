@@ -6,15 +6,14 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 12:55:42 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/08 17:04:38 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/08 18:04:49 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 #include "fillit.h"
-#include <stdio.h>//tejme
 
-int			ft_sqrt_up(int n)//n = tetri_cnt * 4
+int			ft_sqrt_up(int n)
 {
 	int		res;
 
@@ -30,11 +29,9 @@ int			ft_sqrt_up(int n)//n = tetri_cnt * 4
 
 char		**create_square(int length)
 {
-	//int	starting_size;
 	char	**tab;
 	int		i;
 
-	//starting_size = ft_sqrt_up(nb_tetri * 4);
 	if (!(tab = (char**)malloc(sizeof(char*) * length)))
 		return (NULL);
 	i = -1;

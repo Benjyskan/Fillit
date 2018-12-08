@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 12:55:42 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/08 18:04:49 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/08 18:06:54 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int			ft_sqrt_up(int n)
 }
 
 /*
-** create or recreate table
+** Create a square depending of length and initialising int with '.'
 */
 
 char		**create_square(int length)
@@ -53,12 +53,20 @@ char		**create_square(int length)
 	return (tab);
 }
 
+/*
+** Resize square with adding a new row and column
+*/
+
 void		resize_square(char ***tab, int *length)
 {
 	free(*tab);
 	*length += 1;
 	*tab = create_square(*length);
 }
+
+/*
+** Initialise a tab with '.'
+*/
 
 void		initialise(char ***tab, int length)
 {

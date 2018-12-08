@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 20:29:34 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/08 18:14:49 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/08 18:32:34 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int					main(int ac, char **av)
 {
 	int				tetri_cnt;
-	int				length;
+	int				len;
 	t_tetri_coo		*tetri_lst;
 	int				i = 0; ////////////////////////////////////////////////tejme
 	char			**tab;
@@ -35,11 +35,11 @@ int					main(int ac, char **av)
 		ft_putendl_fd("error: one or more pieces are invalid", 1);
 		return (1);
 	}
-	length = ft_sqrt_up(tetri_cnt * 4);
-	tab = create_square(length);
-	fill_square(tetri_lst, &tab, &length, tetri_cnt);
-	printf("length : %d\n", length);
-	while (i < length)
+	len = ft_sqrt_up(tetri_cnt * 4);
+	tab = create_square(len);
+	fill_square(tetri_lst, &tab, &len, tetri_cnt);
+	printf("length : %d\n", len);
+	while (i < len)
 	{
 		printf("%s\n", tab[i]);
 		i++;

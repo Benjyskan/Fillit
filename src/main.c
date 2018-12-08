@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 20:29:34 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/08 11:03:41 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/08 13:31:53 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int				main(int ac, char **av)
 
 	while (i < length)
 	{
-		printf("%s\n", tab[i]);
+		printf("|%s|\n", tab[i]);
 		i++;
 	}
 	return (0);

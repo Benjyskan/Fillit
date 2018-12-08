@@ -6,7 +6,7 @@
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 12:54:58 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/08 18:28:44 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/08 18:37:04 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,16 @@
 ** check if the character is '.' && on the table
 */
 
-int			is_tetri_placeable(t_tetri_coo tetri_lst, int x, int y, int *len, char ***tab)
+int			is_tetri_placeable(t_tetri_coo lst, int x, int y, int *len, char ***tab)
 {
 	int		bloc_cnt;
 
 	bloc_cnt = 0;
 	while (bloc_cnt < 4)
 	{
-		if (x + tetri_lst.p[bloc_cnt].x >= 0
-				&& x + tetri_lst.p[bloc_cnt].x < *len
-				&& y + tetri_lst.p[bloc_cnt].y >= 0
-				&& y + tetri_lst.p[bloc_cnt].y < *len
-				&& tab[0][y + tetri_lst.p[bloc_cnt].y]
-				[x + tetri_lst.p[bloc_cnt].x] == '.')
+		if (x + lst.p[bloc_cnt].x >= 0 && x + lst.p[bloc_cnt].x < *len
+				&& y + lst.p[bloc_cnt].y >= 0 && y + lst.p[bloc_cnt].y < *len
+				&& tab[0][y + lst.p[bloc_cnt].y][x + lst.p[bloc_cnt].x] == '.')
 			bloc_cnt++;
 		else
 			return (0);
@@ -37,7 +34,7 @@ int			is_tetri_placeable(t_tetri_coo tetri_lst, int x, int y, int *len, char ***
 	return (1);
 }
 
-void		fill_square(t_tetri_coo *tetri_lst, char ***tab, int *len, int total)
+void		fill_square(t_tetri_coo *lst, char ***tab, int *len, int total)
 {
 	int		c;
 	int		y;
@@ -54,11 +51,11 @@ void		fill_square(t_tetri_coo *tetri_lst, char ***tab, int *len, int total)
 		x = -1;
 		while (++x <= *len)
 		{
-			if (is_tetri_placeable(tetri_lst[tetri_cnt], x, y, len, tab))
+			if (is_tetri_placeable(lst[tetri_cnt], x, y, len, tab))
 			{
 				while (++bloc_cnt < 4)
-					(*tab)[y + tetri_lst[tetri_cnt].p[bloc_cnt].y]
-						[x + tetri_lst[tetri_cnt].p[bloc_cnt].x] = (char)c;
+					(*tab)[y + lst[tetri_cnt].p[bloc_cnt].y]
+						[x + lst[tetri_cnt].p[bloc_cnt].x] = (char)c;
 				bloc_cnt = -1;
 				tetri_cnt++;
 				x = -1;
@@ -70,6 +67,6 @@ void		fill_square(t_tetri_coo *tetri_lst, char ***tab, int *len, int total)
 	if (tetri_cnt < total)
 	{
 		resize_square(tab, len);
-		fill_square(tetri_lst, tab, len, total);
+		fill_square(lst, tab, len, total);
 	}
 }

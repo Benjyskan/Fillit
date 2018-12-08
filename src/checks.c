@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 20:50:33 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/08 18:13:04 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/08 18:20:47 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ int					bloc_cnt(char *buff)
 
 int					format_check(char *filename)
 {
-	int				fd;
 	int				y;
+	int				fd;
 	int				tetri_cnt;
 	char			buff[21];
 
@@ -104,9 +104,7 @@ int					isvalid_tetri(char *tetri)
 		}
 		i++;
 	}
-	if (count < 6)
-		return (0);
-	return (1);
+	return (count < 6 ? 0 : 1);
 }
 
 /*

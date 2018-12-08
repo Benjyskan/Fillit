@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 12:55:42 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/08 15:10:47 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/08 17:04:38 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,11 @@ char		**create_square(int length)
 	return (tab);
 }
 
-char		**resize_square(char **tab, int length)
+void		resize_square(char ***tab, int *length)
 {
-	free(tab);
-	create_square(length + 1);
-	return (tab);
+	free(*tab);
+	*length += 1;
+	*tab = create_square(*length);
 }
 
 void		initialise(char ***tab, int length)
@@ -73,7 +73,8 @@ void		initialise(char ***tab, int length)
 	{
 		x = -1;
 		while (++x < length)
-			tab[0][y][x] = '.';
+			(*tab)[y][x] = '.';
+		(*tab)[y][x] = 0;
 	}
 	return ;
 }

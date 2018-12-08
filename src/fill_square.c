@@ -6,7 +6,7 @@
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 12:54:58 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/08 12:03:45 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/08 13:34:00 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ void	fill_square(t_tetri_coo *tetri_lst, char ***tab, unsigned length, unsigned 
 			}
 		}
 	}
+	printf("tetri_cnt %d\n", tetri_cnt);
 	if (tetri_cnt < tetri_total)
 	{
 		resize_square(tab, length);

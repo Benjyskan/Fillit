@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 20:29:34 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/07 20:45:21 by penzo            ###   ########.fr       */
+/*   Updated: 2018/12/08 11:03:41 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int				main(int ac, char **av)
 	unsigned	tetri_cnt;
 	unsigned	length;
 	t_tetri_coo	*tetri_lst;
-	int			i = 0;//tejme
+	unsigned	i = 0;//tejme
 	char		**tab;
 
 	if (ac != 2)

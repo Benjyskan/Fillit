@@ -6,12 +6,11 @@
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 12:54:58 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/08 17:01:59 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/08 18:12:35 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-
 
 /*
 ** check if all blocs of the given tetri is placable
@@ -23,13 +22,14 @@ int			is_tetri_placeable(t_tetri_coo tetri_lst, int x, int y, int *length, char 
 	int		bloc_cnt;
 
 	bloc_cnt = 0;
-	while(bloc_cnt < 4)
+	while (bloc_cnt < 4)
 	{
 		if (x + tetri_lst.p[bloc_cnt].x >= 0
 				&& x + tetri_lst.p[bloc_cnt].x < *length
 				&& y + tetri_lst.p[bloc_cnt].y >= 0
 				&& y + tetri_lst.p[bloc_cnt].y < *length
-				&& tab[0][y + tetri_lst.p[bloc_cnt].y][x + tetri_lst.p[bloc_cnt].x] == '.')
+				&& tab[0][y + tetri_lst.p[bloc_cnt].y]
+				[x + tetri_lst.p[bloc_cnt].x] == '.')
 			bloc_cnt++;
 		else
 			return (0);
@@ -56,7 +56,6 @@ void		fill_square(t_tetri_coo *tetri_lst, char ***tab, int *length, int tetri_to
 		{
 			if (is_tetri_placeable(tetri_lst[tetri_cnt], x, y, length, tab))
 			{
-				//printf("in tetri_placeable, x: %d, y: %d\n", x, y);
 				while (++bloc_cnt < 4)
 					(*tab)[y + tetri_lst[tetri_cnt].p[bloc_cnt].y]
 						[x + tetri_lst[tetri_cnt].p[bloc_cnt].x] = (char)c;

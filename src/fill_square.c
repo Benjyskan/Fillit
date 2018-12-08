@@ -6,20 +6,20 @@
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 12:54:58 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/08 13:34:00 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/08 15:11:36 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
 /*
- ** check if all blocs of the given tetri is placable
- ** check if the character is '.' && on the table
- */
+** check if all blocs of the given tetri is placable
+** check if the character is '.' && on the table
+*/
 
-int		is_tetri_placeable(t_tetri_coo tetri_lst, unsigned x, unsigned y, unsigned length, char ***tab)
+int			is_tetri_placeable(t_tetri_coo tetri_lst, int x, int y, int length, char ***tab)
 {
-	unsigned	bloc_cnt;
+	int		bloc_cnt;
 
 	bloc_cnt = 0;
 	while(bloc_cnt < 4)
@@ -36,13 +36,13 @@ int		is_tetri_placeable(t_tetri_coo tetri_lst, unsigned x, unsigned y, unsigned 
 	return (1);
 }
 
-void	fill_square(t_tetri_coo *tetri_lst, char ***tab, unsigned length, unsigned tetri_total)
+void		fill_square(t_tetri_coo *tetri_lst, char ***tab, int length, int tetri_total)
 {
-	unsigned	x;
-	unsigned	y;
-	unsigned	tetri_cnt;
-	unsigned	bloc_cnt;
-	unsigned	c;
+	int		x;
+	int		y;
+	int		tetri_cnt;
+	int		bloc_cnt;
+	int		c;
 
 	c = 'A';
 	y = -1;

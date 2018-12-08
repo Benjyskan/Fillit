@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 20:50:33 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/07 14:48:25 by penzo            ###   ########.fr       */
+/*   Updated: 2018/12/08 15:10:06 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@
 ** If it equal, function return 1 otherwise 0
 */
 
-unsigned			bloc_cnt(char *buff)
+int					bloc_cnt(char *buff)
 {
-	unsigned		i;
-	unsigned		bloc_cnt;
+	int				i;
+	int				bloc_cnt;
 
 	i = 0;
 	bloc_cnt = 0;
@@ -63,11 +63,11 @@ unsigned			bloc_cnt(char *buff)
 ** newline and if there are only 4 sharp (#) per tetriminos by bloc_cnt()
 */
 
-unsigned			format_check(char *filename)
+int					format_check(char *filename)
 {
 	int				fd;
-	unsigned		y;
-	unsigned		tetri_cnt;
+	int				y;
+	int				tetri_cnt;
 	char			buff[21];
 
 	if (!(fd = open_sample(filename)))
@@ -96,10 +96,10 @@ unsigned			format_check(char *filename)
 ** Check tetriminos shapes by counting the number of touching sides
 */
 
-unsigned			isvalid_tetri(char *tetri)
+int					isvalid_tetri(char *tetri)
 {
-	unsigned		i;
-	unsigned		count;
+	int				i;
+	int				count;
 
 	i = 0;
 	count = 0;
@@ -130,10 +130,10 @@ unsigned			isvalid_tetri(char *tetri)
 ** each pieces by calling fill_tetri_coo()
 */
 
-t_tetri_coo		*pieces_check(char *filename, unsigned tetri_cnt)
+t_tetri_coo			*pieces_check(char *filename, int tetri_cnt)
 {
 	int				fd;
-	unsigned		i;
+	int				i;
 	char			buff[21];
 	t_tetri_coo		*tetri_lst;
 
@@ -151,9 +151,9 @@ t_tetri_coo		*pieces_check(char *filename, unsigned tetri_cnt)
 			return (0);
 		tetri_lst[i] = fill_tetri_coo(buff);
 		/*printf("x=%d y=%d\n\n", tetri_lst[i].p[0].x, tetri_lst[i].p[0].y);
-		printf("x=%d y=%d\n\n", tetri_lst[i].p[1].x, tetri_lst[i].p[1].y);
-		printf("x=%d y=%d\n\n", tetri_lst[i].p[2].x, tetri_lst[i].p[2].y);
-		printf("x=%d y=%d\n\n\n", tetri_lst[i].p[3].x, tetri_lst[i].p[3].y);*/
+		  printf("x=%d y=%d\n\n", tetri_lst[i].p[1].x, tetri_lst[i].p[1].y);
+		  printf("x=%d y=%d\n\n", tetri_lst[i].p[2].x, tetri_lst[i].p[2].y);
+		  printf("x=%d y=%d\n\n\n", tetri_lst[i].p[3].x, tetri_lst[i].p[3].y);*/
 		i++;
 	}
 	close(fd);

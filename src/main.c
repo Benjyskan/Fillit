@@ -6,20 +6,20 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 20:29:34 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/08 13:31:53 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/08 15:12:45 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include <stdio.h>//tejme
 
-int				main(int ac, char **av)
+int					main(int ac, char **av)
 {
-	unsigned	tetri_cnt;
-	unsigned	length;
-	t_tetri_coo	*tetri_lst;
-	unsigned	i = 0;//tejme
-	char		**tab;
+	int				tetri_cnt;
+	int				length;
+	t_tetri_coo		*tetri_lst;
+	int				i = 0;//tejme
+	char			**tab;
 
 	if (ac != 2)
 	{

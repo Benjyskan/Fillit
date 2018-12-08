@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 12:55:42 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/08 13:34:44 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/08 15:10:47 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 #include "fillit.h"
 #include <stdio.h>//tejme
 
-unsigned	ft_sqrt_up(unsigned n)//n = tetri_cnt * 4
+int			ft_sqrt_up(int n)//n = tetri_cnt * 4
 {
-	unsigned	res;
+	int		res;
 
 	res = 0;
 	while (res * res < n)
@@ -28,11 +28,11 @@ unsigned	ft_sqrt_up(unsigned n)//n = tetri_cnt * 4
 ** create or recreate table
 */
 
-char	**create_square(unsigned length)
+char		**create_square(int length)
 {
-	//unsigned	starting_size;
-	char		**tab;
-	unsigned	i;
+	//int	starting_size;
+	char	**tab;
+	int		i;
 
 	//starting_size = ft_sqrt_up(nb_tetri * 4);
 	if (!(tab = (char**)malloc(sizeof(char*) * length)))
@@ -56,17 +56,17 @@ char	**create_square(unsigned length)
 	return (tab);
 }
 
-char	**resize_square(char **tab, unsigned length)
+char		**resize_square(char **tab, int length)
 {
 	free(tab);
 	create_square(length + 1);
 	return (tab);
 }
 
-void	initialise(char ***tab, unsigned length)
+void		initialise(char ***tab, int length)
 {
-	unsigned	x;
-	unsigned	y;
+	int		x;
+	int		y;
 
 	y = -1;
 	while (++y < length)

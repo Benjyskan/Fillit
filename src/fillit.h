@@ -6,7 +6,7 @@
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 17:23:25 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/08 11:59:51 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/08 15:12:14 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,14 @@ typedef struct		s_tetri_coo
 }					t_tetri_coo;
 
 int					open_sample(char *filename);
-unsigned int		format_check(char *filename);
-t_tetri_coo			*pieces_check(char *filename, unsigned tetri_cnt);
+int					format_check(char *filename);
+t_tetri_coo			*pieces_check(char *filename, int tetri_cnt);
 t_tetri_coo			fill_tetri_coo(char *tetri);
-char				**create_square(unsigned nb_tetri);
-unsigned			ft_sqrt_up(unsigned n);
-char				**resize_square(char **tab, unsigned length);
-void				initialise(char ***tab, unsigned length);
+char				**create_square(int nb_tetri);
+int					ft_sqrt_up(int n);
+char				**resize_square(char **tab, int length);
+void				initialise(char ***tab, int length);
 void				fill_square(t_tetri_coo *tetri_lst,
-					char ***tab, unsigned length, unsigned tetri_total);
+					char ***tab, int length, int tetri_total);
 
 #endif

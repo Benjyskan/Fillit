@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 12:55:42 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/08 18:06:54 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/08 18:21:27 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,5 +81,4 @@ void		initialise(char ***tab, int length)
 			(*tab)[y][x] = '.';
 		(*tab)[y][x] = 0;
 	}
-	return ;
 }

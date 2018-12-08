@@ -6,7 +6,7 @@
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 17:23:25 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/08 18:16:34 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/08 18:29:26 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ t_tetri_coo			*pieces_check(char *filename, int tetri_cnt);
 t_tetri_coo			fill_tetri_coo(char *tetri);
 char				**create_square(int nb_tetri);
 int					ft_sqrt_up(int n);
-void				resize_square(char ***tab, int *length);
-void				initialise(char ***tab, int length);
+void				resize_square(char ***tab, int *len);
+void				initialise(char ***tab, int len);
 void				fill_square(t_tetri_coo *tetri_lst,
-					char ***tab, int *length, int tetri_total);
+					char ***tab, int *len, int total);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 20:50:33 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/08 18:20:47 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/08 18:53:24 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,18 +112,18 @@ int					isvalid_tetri(char *tetri)
 ** each pieces by calling fill_tetri_coo()
 */
 
-t_tetri_coo			*pieces_check(char *filename, int tetri_cnt)
+t_coo			*pieces_check(char *filename, int tetri_cnt)
 {
 	int				fd;
 	int				i;
 	char			buff[21];
-	t_tetri_coo		*tetri_lst;
+	t_coo		*tetri_lst;
 
 	if (!(fd = open_sample(filename)))
 		return (0);
-	if (!(tetri_lst = (t_tetri_coo *)malloc(sizeof(t_tetri_coo) * tetri_cnt)))
+	if (!(tetri_lst = (t_coo *)malloc(sizeof(t_coo) * tetri_cnt)))
 	{
-		ft_putendl_fd("error: while malloc tetri_lst", 1);
+		ft_putendl("error");
 		return (0);
 	}
 	i = 0;

@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/05 14:44:32 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/07 12:31:08 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/08 18:54:35 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int			open_sample(char *filename)
 	fd = open(filename, O_RDONLY);
 	if (fd <= 0)
 	{
-		ft_putendl_fd("error: opening file", 1);
+		ft_putendl("error");
 		return (0);
 	}
 	return (fd);

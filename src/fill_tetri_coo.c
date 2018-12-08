@@ -6,17 +6,17 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/04 18:49:11 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/08 15:08:20 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/08 18:46:59 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-t_tetri_coo			fill_tetri_coo(char *str)
+t_coo			fill_tetri_coo(char *str)
 {
-	int				i;
-	int				bloc_cnt;
-	t_tetri_coo		tetri;
+	int			i;
+	int			bloc_cnt;
+	t_coo		tetri;
 
 	i = 0;
 	bloc_cnt = -1;

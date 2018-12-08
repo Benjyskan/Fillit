@@ -6,7 +6,7 @@
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 12:54:58 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/08 18:37:04 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/08 18:40:42 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 ** check if the character is '.' && on the table
 */
 
-int			is_tetri_placeable(t_tetri_coo lst, int x, int y, int *len, char ***tab)
+int			is_tetri_placeable(t_coo lst, int x, int y, int *len, char ***tab)
 {
 	int		bloc_cnt;
 
@@ -26,7 +26,7 @@ int			is_tetri_placeable(t_tetri_coo lst, int x, int y, int *len, char ***tab)
 	{
 		if (x + lst.p[bloc_cnt].x >= 0 && x + lst.p[bloc_cnt].x < *len
 				&& y + lst.p[bloc_cnt].y >= 0 && y + lst.p[bloc_cnt].y < *len
-				&& tab[0][y + lst.p[bloc_cnt].y][x + lst.p[bloc_cnt].x] == '.')
+				&& (*tab)[y + lst.p[bloc_cnt].y][x + lst.p[bloc_cnt].x] == '.')
 			bloc_cnt++;
 		else
 			return (0);
@@ -34,7 +34,7 @@ int			is_tetri_placeable(t_tetri_coo lst, int x, int y, int *len, char ***tab)
 	return (1);
 }
 
-void		fill_square(t_tetri_coo *lst, char ***tab, int *len, int total)
+void		fill_square(t_coo *lst, char ***tab, int *len, int total)
 {
 	int		c;
 	int		y;

@@ -6,7 +6,7 @@
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 17:23:25 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/09 08:23:39 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/09 12:47:40 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct		s_xy
 	int				original;
 }					t_xy;
 
-typedef struct		s_tetri_coo
+typedef struct		s_coo
 {
 	struct s_xy		p[4];
 }					t_coo;

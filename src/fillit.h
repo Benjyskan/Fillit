@@ -6,7 +6,7 @@
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 17:23:25 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/09 13:00:42 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/09 15:18:10 by penzo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct		s_xy
 typedef struct		s_coo
 {
 	struct s_xy		p[4];
+	int				c;//gere
 }					t_coo;
 
 int					open_sample(char *filename);

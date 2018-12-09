@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 20:50:33 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/09 08:09:48 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/09 15:26:30 by penzo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,6 +132,8 @@ t_coo				*pieces_check(char *filename, int t_cnt)
 		if (!isvalid_tetri(buff))
 			return (0);
 		tetri_lst[i] = fill_tetri_coo(buff);
+		tetri_lst[i].c = i + 65;
+		//printf("%c\n", (char)tetri_lst[i].c);
 		i++;
 	}
 	close(fd);

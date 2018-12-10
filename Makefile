@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/15 11:06:32 by amalsago          #+#    #+#              #
-#    Updated: 2018/12/10 21:37:51 by amalsago         ###   ########.fr        #
+#    Updated: 2018/12/10 22:24:50 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ SRC=src/main.c				\
 	src/fill_tetri_coo.c	\
 	src/open_sample.c		\
 	src/create_square.c		\
+	src/ft_sqrt_up.c		\
 	src/fill_square.c
 OBJ=$(SRC:.c=.o) 
 NAME=fillit

@@ -6,7 +6,7 @@
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 12:54:58 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/10 20:22:00 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/10 22:44:16 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,17 +66,14 @@ int		*delete_tetri(t_table table, int c)
 	return (coo);
 }
 
-/*
-void		recur(t_coo *lst, int total, char ***tab)
+/*void		recur(t_coo *lst, int total, char ***tab)
 {
 	if (tetri_cnt == total)
 		//solved
 		//undo last tetri
 	//recur(last tetri, x++)
 }
-*/
 
-/*
 void		fill_square(t_coo *lst, t_table table, int total)
 {
 	//int		c;
@@ -114,8 +111,7 @@ void		fill_square(t_coo *lst, t_table table, int total)
 		fill_square(lst, table, total);
 	}
 	//delete_tetri(tab, (int)'A', *len);
-}
-*/
+}*/
 
 void	print_tetri(t_table table, int x, int y, t_coo tetri)
 {

@@ -6,7 +6,7 @@
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 17:32:08 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/10 22:26:59 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/10 22:41:09 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int					main(int ac, char **av)
 {
 	int				len;
-	int				i = 0; ////////////////////////////////////////////////tejme
+	int				i = 0;
 	char			**tmp;
 	t_table			table;
 
@@ -26,16 +26,16 @@ int					main(int ac, char **av)
 	}
 	if (!check_file(av[1]))
 		return (1);
-printf("%d\n", g_tetri_total);
+	printf("%d\n", g_tetri_total);
 	len = ft_sqrt_up(g_tetri_total * 4);
 	table.len = &len;
 	tmp = create_square(len);
 	table.tab = &tmp;
 	place_tetri(table, 0, 0, g_tetri_lst[0]);
-printf("length : %d\n", len);
+	printf("length : %d\n", len);
 	while (i < len)
 	{
-		printf("%s\n", table.tab[0][i]);//pas sure de la syntax
+		printf("%s\n", table.tab[0][i]);
 		i++;
 	}
 	return (0);

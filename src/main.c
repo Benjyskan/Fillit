@@ -6,7 +6,7 @@
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 17:32:08 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/10 20:27:20 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/10 21:42:12 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int					main(int ac, char **av)
 		return (1);
 	}
 	printf("%d\n", g_tetri_total);
-	if (!(pieces_check(av[1], g_tetri_total)))//set the global
+	if (!(pieces_check(av[1])))//set the global
 	{
 		ft_putendl("error");
 		return (1);

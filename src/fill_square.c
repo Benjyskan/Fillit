@@ -6,7 +6,7 @@
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 12:54:58 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/10 16:39:17 by penzo            ###   ########.fr       */
+/*   Updated: 2018/12/10 19:35:43 by penzo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ int		*delete_tetri(t_table table, int c)
 				{
 					coo[0] = x;
 					coo[1] = y;
+					is_first = 1;
 				}
 			}
 		}
@@ -126,31 +127,40 @@ void	print_tetri(t_table table, int x, int y, t_coo tetri)
 }
 
 //void	place_tetri(t_table table, int *coo, t_coo *lst)
-void	place_tetri(t_table table, int x, int y, t_coo *lst)
+void	place_tetri(t_table table, int x, int y, t_coo tetri)
 {
-	int			last_pos[2];
-	const int	i = 0;
-	const int	tetri_total = 2;//tejme
+	int			*last_pos;
+	static int	i = 0;
+	const int	tetri_total = 3;//tejme
 
-	if (i > tetri_total)
+	printf("%d HEY\n\n", i);
+	if (i == tetri_total)
 	{
-		printf("BRAVO !");
+		printf("BRAVO !!!!!!!!!!!!!!!!");
 		return ;//solved: print table
 	}
-	if (is_tetri_placeable(lst[i], x, y, table))
-		//print_tetri(table, x, y, lst[i + 1]);
-		print_tetri(table, x, y, lst++);
-	if (x < *(table.len) - 1)
-		place_tetri(table, x + 1, y, lst[i]);
-	if (x == *(table.len && y < *(table.len)))
-		place_tetri(table, 0, y + 1, lst[i]);
-	if (x == length && y == length)
+	//if (is_tetri_placeable(g_tetri_lst[i], x, y, table))
+	if (is_tetri_placeable(tetri, x, y, table))
 	{
+		printf("print %d tetri on: %d, %d\n", i, x, y);
+		print_tetri(table, x, y, g_tetri_lst[i++]);
+		place_tetri(table, 0, 0, g_tetri_lst[i]);
+	}
+	if (x < *(table.len) - 1)
+		place_tetri(table, x + 1, y, g_tetri_lst[i]);
+		//place_tetri(table, x + 1, y, g_tetri_lst[i]);//use of an global var
+	if (x == *(table.len) -1 && y < *(table.len) - 1)
+		place_tetri(table, 0, y + 1, g_tetri_lst[i]);
+	if (x == *(table.len) - 1 && y == *(table.len) - 1)
+	{
+		printf("ICI tetri:%d\n", i);
 		i--;
-		last_pos = delete_tetri(table, lst[i].c);
-		if (x < *(table.len) - 1)
-			place_tetri(table, last_pos[0] + 1, last_pos[1], lst[i]);
-		if (x == *(table.len) && y < *(table.len))
-			place_tetri(table, 0, last_pos[1] + 1, lst[i]);
+		last_pos = delete_tetri(table, g_tetri_lst[i].c);
+		printf("last_pos: %d, %d\n", last_pos[0], last_pos[1]);
+		printf("x: %d, y: %d, tab.len: %d\n", x, y, *(table.len));
+		if (last_pos[0] < *(table.len) - 1)
+			place_tetri(table, last_pos[0] + 1, last_pos[1], g_tetri_lst[i]);
+		if (x == *(table.len) - 1 && y < *(table.len) - 1)
+			place_tetri(table, 0, last_pos[1] + 1, g_tetri_lst[i]);
 	}
 }

@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
+/*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/03 20:29:34 by amalsago          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2018/12/10 14:44:11 by penzo            ###   ########.fr       */
-=======
-/*   Updated: 2018/12/09 17:06:17 by amalsago         ###   ########.fr       */
->>>>>>> 5d32e7b09736c1a323686d13ee570268c88f42d3
+/*   Created: 2018/12/10 17:32:08 by penzo             #+#    #+#             */
+/*   Updated: 2018/12/10 18:56:09 by penzo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +16,9 @@ int					main(int ac, char **av)
 {
 	int				tetri_cnt;
 	int				len;
-	t_coo			*lst;
+	//t_coo			*lst;//no need since we use a global now
 	int				i = 0; ////////////////////////////////////////////////tejme
-	//char			**tab;
+	char			**tmp;
 	t_table			table;
 
 	if (ac != 2)
@@ -35,20 +31,23 @@ int					main(int ac, char **av)
 		ft_putendl("error");
 		return (1);
 	}
-	if (!(lst = pieces_check(av[1], tetri_cnt)))
+	if (!(pieces_check(av[1], tetri_cnt)))//set the global
 	{
 		ft_putendl("error");
 		return (1);
 	}
-	len = ft_sqrt_up(t_cnt * 4);
-	*(table.tab) = create_square(len);
-	*(table.len) = len;
-	//fill_square(lst, &tab, &len, t_cnt);
-	place_tetri(table, 0, 0, lst);
+	len = ft_sqrt_up(tetri_cnt * 4);
+	table.len = &len;
+	//*(table.len) = len;
+	tmp = create_square(len);
+	table.tab = &tmp;
+	//*(table.tab) = create_square(len);
+	//fill_square(g_tetri_lst, &tab, &len, tetri_cnt);
+	place_tetri(table, 0, 0, g_tetri_lst[0]);
 	printf("length : %d\n", len);
 	while (i < len)
 	{
-		printf("%s\n", *(table.tab[i]));//pas sure de la syntax
+		printf("%s\n", table.tab[0][i]);//pas sure de la syntax
 		i++;
 	}
 	return (0);

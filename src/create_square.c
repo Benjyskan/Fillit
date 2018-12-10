@@ -6,31 +6,40 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 12:55:42 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/08 18:30:22 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/10 22:24:55 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 #include "fillit.h"
 
-int			ft_sqrt_up(int n)
-{
-	int		res;
+/*
+** Initialise a tab with '.'
+*/
 
-	res = 0;
-	while (res * res < n)
-		res++;
-	return (res);
+static void		initialise(char ***tab, int len)
+{
+	int			x;
+	int			y;
+
+	y = -1;
+	while (++y < len)
+	{
+		x = -1;
+		while (++x < len)
+			(*tab)[y][x] = '.';
+		(*tab)[y][x] = 0;
+	}
 }
 
 /*
 ** Create a square depending of length and initialising int with '.'
 */
 
-char		**create_square(int len)
+char			**create_square(int len)
 {
-	char	**tab;
-	int		i;
+	char		**tab;
+	int			i;
 
 	if (!(tab = (char**)malloc(sizeof(char*) * len)))
 		return (NULL);
@@ -57,28 +66,9 @@ char		**create_square(int len)
 ** Resize square with adding a new row and column
 */
 
-void		resize_square(char ***tab, int *len)
+void			resize_square(char ***tab, int *len)
 {
 	free(*tab);
 	*len += 1;
 	*tab = create_square(*len);
-}
-
-/*
-** Initialise a tab with '.'
-*/
-
-void		initialise(char ***tab, int len)
-{
-	int		x;
-	int		y;
-
-	y = -1;
-	while (++y < len)
-	{
-		x = -1;
-		while (++x < len)
-			(*tab)[y][x] = '.';
-		(*tab)[y][x] = 0;
-	}
 }

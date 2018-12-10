@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 20:50:33 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/10 21:40:43 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/10 21:49:26 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int					format_check(char *filename)
 		g_tetri_total++;
 	}
 	close(fd);
-	return (1);
+	return (pieces_check(filename) == 1 ? 1 : 0);
 }
 
 /*

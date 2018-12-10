@@ -6,7 +6,7 @@
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 17:23:25 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/10 22:08:47 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/10 22:24:31 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ int					check_file(char *filename);
 int					ft_sqrt_up(int n);
 char				**create_square(int nb_tetri);
 void				resize_square(char ***tab, int *len);
-void				initialise(char ***tab, int len);
 void				fill_square(t_coo *lst, t_table table, int total);
 void				place_tetri(t_table table, int x, int y, t_coo tetri);
 

@@ -6,18 +6,17 @@
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 12:54:58 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/10 19:35:43 by penzo            ###   ########.fr       */
+/*   Updated: 2018/12/10 20:22:00 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
 /*
- ** check if all blocs of the given tetri is placable
- ** check if the character is '.' && on the table
- */
+** check if all blocs of the given tetri is placable
+** check if the character is '.' && on the table
+*/
 
-//int			is_tetri_placeable(t_coo lst, int *coo, int *len, char ***tab)
 int			is_tetri_placeable(t_coo lst, int x, int y, t_table table)
 {
 	int		bloc_cnt;
@@ -43,7 +42,6 @@ int		*delete_tetri(t_table table, int c)
 	int		x;
 	int		y;
 	int		is_first;
-	//int		coo[2];
 	int		*coo;
 
 	coo = malloc(sizeof(int) * 2);
@@ -57,11 +55,10 @@ int		*delete_tetri(t_table table, int c)
 			if (table.tab[0][y][x] == (char)c)
 			{
 				table.tab[0][y][x] = '.';
-				if (!is_first)
+				if (!is_first++)
 				{
 					coo[0] = x;
 					coo[1] = y;
-					is_first = 1;
 				}
 			}
 		}
@@ -69,15 +66,18 @@ int		*delete_tetri(t_table table, int c)
 	return (coo);
 }
 
-/*void		recur(t_coo *lst, int total, char ***tab)
-  {
-  if (tetri_cnt == total)
-//solved
-//undo last tetri
-//recur(last tetri, x++)
-}*/
+/*
+void		recur(t_coo *lst, int total, char ***tab)
+{
+	if (tetri_cnt == total)
+		//solved
+		//undo last tetri
+	//recur(last tetri, x++)
+}
+*/
 
-/*void		fill_square(t_coo *lst, t_table table, int total)
+/*
+void		fill_square(t_coo *lst, t_table table, int total)
 {
 	//int		c;
 	int		coo[2];
@@ -114,7 +114,8 @@ int		*delete_tetri(t_table table, int c)
 		fill_square(lst, table, total);
 	}
 	//delete_tetri(tab, (int)'A', *len);
-}*/
+}
+*/
 
 void	print_tetri(t_table table, int x, int y, t_coo tetri)
 {
@@ -126,38 +127,36 @@ void	print_tetri(t_table table, int x, int y, t_coo tetri)
 			= tetri.c;
 }
 
-//void	place_tetri(t_table table, int *coo, t_coo *lst)
 void	place_tetri(t_table table, int x, int y, t_coo tetri)
 {
 	int			*last_pos;
 	static int	i = 0;
-	const int	tetri_total = 3;//tejme
 
-	printf("%d HEY\n\n", i);
-	if (i == tetri_total)
+	//printf("%d HEY\n\n", i);
+	if (i == g_tetri_total)
 	{
-		printf("BRAVO !!!!!!!!!!!!!!!!");
+		//printf("BRAVO !!!!!!!!!!!!!!!!");
 		return ;//solved: print table
 	}
 	//if (is_tetri_placeable(g_tetri_lst[i], x, y, table))
 	if (is_tetri_placeable(tetri, x, y, table))
 	{
-		printf("print %d tetri on: %d, %d\n", i, x, y);
+		//printf("print %d tetri on: %d, %d\n", i, x, y);
 		print_tetri(table, x, y, g_tetri_lst[i++]);
 		place_tetri(table, 0, 0, g_tetri_lst[i]);
 	}
 	if (x < *(table.len) - 1)
 		place_tetri(table, x + 1, y, g_tetri_lst[i]);
 		//place_tetri(table, x + 1, y, g_tetri_lst[i]);//use of an global var
-	if (x == *(table.len) -1 && y < *(table.len) - 1)
+	if (x == *(table.len) - 1 && y < *(table.len) - 1)
 		place_tetri(table, 0, y + 1, g_tetri_lst[i]);
 	if (x == *(table.len) - 1 && y == *(table.len) - 1)
 	{
-		printf("ICI tetri:%d\n", i);
+		//printf("ICI tetri:%d\n", i);
 		i--;
 		last_pos = delete_tetri(table, g_tetri_lst[i].c);
-		printf("last_pos: %d, %d\n", last_pos[0], last_pos[1]);
-		printf("x: %d, y: %d, tab.len: %d\n", x, y, *(table.len));
+		//printf("last_pos: %d, %d\n", last_pos[0], last_pos[1]);
+		//printf("x: %d, y: %d, tab.len: %d\n", x, y, *(table.len));
 		if (last_pos[0] < *(table.len) - 1)
 			place_tetri(table, last_pos[0] + 1, last_pos[1], g_tetri_lst[i]);
 		if (x == *(table.len) - 1 && y < *(table.len) - 1)

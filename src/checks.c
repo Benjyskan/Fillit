@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 20:50:33 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/10 22:04:01 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/10 22:12:53 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,6 +135,12 @@ static int			format_check(char *filename)
 	close(fd);
 	return (pieces_check(filename) == 1 ? 1 : 0);
 }
+
+/*
+** check_file() function takes filename in parametre and pass it to
+** format_check() and pieces_check() and prints error message if one
+** of calling functions returns 0
+*/
 
 int					check_file(char *filename)
 {

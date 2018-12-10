@@ -6,7 +6,7 @@
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 12:54:58 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/10 22:44:16 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/10 22:56:07 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 ** check if the character is '.' && on the table
 */
 
-int			is_tetri_placeable(t_coo lst, int x, int y, t_table table)
+static int		is_tetri_placeable(t_coo lst, int x, int y, t_table table)
 {
-	int		bloc_cnt;
+	int			bloc_cnt;
 
 	bloc_cnt = 0;
 	while (bloc_cnt < 4)
@@ -37,12 +37,12 @@ int			is_tetri_placeable(t_coo lst, int x, int y, t_table table)
 	return (1);
 }
 
-int		*delete_tetri(t_table table, int c)
+int				*delete_tetri(t_table table, int c)
 {
-	int		x;
-	int		y;
-	int		is_first;
-	int		*coo;
+	int			x;
+	int			y;
+	int			is_first;
+	int			*coo;
 
 	coo = malloc(sizeof(int) * 2);
 	is_first = 0;
@@ -66,7 +66,7 @@ int		*delete_tetri(t_table table, int c)
 	return (coo);
 }
 
-/*void		recur(t_coo *lst, int total, char ***tab)
+/*void				recur(t_coo *lst, int total, char ***tab)
 {
 	if (tetri_cnt == total)
 		//solved
@@ -74,12 +74,12 @@ int		*delete_tetri(t_table table, int c)
 	//recur(last tetri, x++)
 }
 
-void		fill_square(t_coo *lst, t_table table, int total)
+void				fill_square(t_coo *lst, t_table table, int total)
 {
 	//int		c;
-	int		coo[2];
-	int		bloc_cnt;
-	int		tetri_cnt;
+	int			coo[2];
+	int			bloc_cnt;
+	int			tetri_cnt;
 
 	//c = 'A';
 	coo[1] = -1;
@@ -113,9 +113,9 @@ void		fill_square(t_coo *lst, t_table table, int total)
 	//delete_tetri(tab, (int)'A', *len);
 }*/
 
-void	print_tetri(t_table table, int x, int y, t_coo tetri)
+void			print_tetri(t_table table, int x, int y, t_coo tetri)
 {
-	int		bloc_cnt;
+	int			bloc_cnt;
 
 	bloc_cnt = -1;
 	while (++bloc_cnt < 4)
@@ -123,7 +123,7 @@ void	print_tetri(t_table table, int x, int y, t_coo tetri)
 			= tetri.c;
 }
 
-void	place_tetri(t_table table, int x, int y, t_coo tetri)
+void			place_tetri(t_table table, int x, int y, t_coo tetri)
 {
 	int			*last_pos;
 	static int	i = 0;

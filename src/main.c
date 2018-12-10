@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 20:29:34 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/09 08:11:10 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/10 14:44:11 by penzo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ int					main(int ac, char **av)
 	int				len;
 	t_coo			*lst;
 	int				i = 0; ////////////////////////////////////////////////tejme
-	char			**tab;
+	//char			**tab;
+	t_table			table;
 
 	if (ac != 2)
 	{
@@ -36,12 +37,14 @@ int					main(int ac, char **av)
 		return (1);
 	}
 	len = ft_sqrt_up(t_cnt * 4);
-	tab = create_square(len);
-	fill_square(lst, &tab, &len, t_cnt);
+	*(table.tab) = create_square(len);
+	*(table.len) = len;
+	//fill_square(lst, &tab, &len, t_cnt);
+	place_tetri(table, 0, 0, lst);
 	printf("length : %d\n", len);
 	while (i < len)
 	{
-		printf("%s\n", tab[i]);
+		printf("%s\n", *(table.tab[i]));//pas sure de la syntax
 		i++;
 	}
 	return (0);

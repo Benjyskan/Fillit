@@ -6,7 +6,7 @@
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 17:23:25 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/09 15:18:10 by penzo            ###   ########.fr       */
+/*   Updated: 2018/12/10 12:58:25 by penzo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,12 @@
 
 # include <stdio.h>
 # include "../libft/libft.h"
+
+typedef struct		s_table
+{
+	char			***tab;
+	int				*len;
+}					t_table;
 
 typedef struct		s_xy
 {
@@ -43,7 +49,7 @@ char				**create_square(int nb_tetri);
 int					ft_sqrt_up(int n);
 void				resize_square(char ***tab, int *len);
 void				initialise(char ***tab, int len);
-void				fill_square(t_coo *lst,
-					char ***tab, int *len, int total);
+void				fill_square(t_coo *lst, t_table table, int total);
+void    			place_tetri(t_table table, int x, int y, t_coo *lst);
 
 #endif

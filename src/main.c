@@ -6,7 +6,11 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 20:29:34 by amalsago          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2018/12/10 14:44:11 by penzo            ###   ########.fr       */
+=======
+/*   Updated: 2018/12/09 17:06:17 by amalsago         ###   ########.fr       */
+>>>>>>> 5d32e7b09736c1a323686d13ee570268c88f42d3
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +18,7 @@
 
 int					main(int ac, char **av)
 {
-	int				t_cnt;
+	int				tetri_cnt;
 	int				len;
 	t_coo			*lst;
 	int				i = 0; ////////////////////////////////////////////////tejme
@@ -26,12 +30,12 @@ int					main(int ac, char **av)
 		ft_putendl_fd("usage: ./fillit filename", 1);
 		return (1);
 	}
-	if (!(t_cnt = format_check(av[1])))
+	if (!(tetri_cnt = format_check(av[1])))
 	{
 		ft_putendl("error");
 		return (1);
 	}
-	if (!(lst = pieces_check(av[1], t_cnt)))
+	if (!(lst = pieces_check(av[1], tetri_cnt)))
 	{
 		ft_putendl("error");
 		return (1);

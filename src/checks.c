@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 20:50:33 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/09 15:26:30 by penzo            ###   ########.fr       */
+/*   Updated: 2018/12/09 17:05:11 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 #include <unistd.h>
 
 /*
-** b_cnt() allows to count if the number of blocs in tetriminos is equal to 4
+** bloc_cnt() allows to count if the number of blocs in tetriminos is equal to 4
 ** If it equal, function return 1 otherwise 0
 */
 
-int					b_cnt(char *buff)
+int					bloc_cnt(char *buff)
 {
 	int				i;
-	int				b_cnt;
+	int				bloc_cnt;
 
 	i = 0;
-	b_cnt = 0;
+	bloc_cnt = 0;
 	while (i < 20)
 	{
 		if (i % 5 == 4)
@@ -35,45 +35,45 @@ int					b_cnt(char *buff)
 		else if (buff[i] != '.' && buff[i] != '#')
 			return (0);
 		if (buff[i] == '#')
-			b_cnt++;
+			bloc_cnt++;
 		i++;
 	}
-	return (b_cnt == 4);
+	return (bloc_cnt == 4);
 }
 
 /*
 ** format_check() allows to validate the input file and it retruns number
 ** of pieces. It checks the length of the line, if tetri are separated by 1
-** newline and if there are only 4 sharp (#) per tetriminos by b_cnt()
+** newline and if there are only 4 sharp (#) per tetriminos by bloc_cnt()
 */
 
 int					format_check(char *filename)
 {
 	int				y;
 	int				fd;
-	int				t_cnt;
+	int				tetri_cnt;
 	char			buff[21];
 
 	if (!(fd = open_sample(filename)))
 		return (0);
-	t_cnt = 0;
+	tetri_cnt = 0;
 	while ((y = read(fd, buff, 21)) > 0)
 	{
 		if (y == 20)
 		{
-			if (!b_cnt(buff))
+			if (!bloc_cnt(buff))
 				return (0);
-			t_cnt++;
+			tetri_cnt++;
 			break ;
 		}
 		if (buff[20] != '\n')
 			return (0);
-		if (!b_cnt(buff))
+		if (!bloc_cnt(buff))
 			return (0);
-		t_cnt++;
+		tetri_cnt++;
 	}
 	close(fd);
-	return (y == 20 ? t_cnt : 0);
+	return (y == 20 ? tetri_cnt : 0);
 }
 
 /*
@@ -112,7 +112,7 @@ int					isvalid_tetri(char *tetri)
 ** each pieces by calling fill_tetri_coo()
 */
 
-t_coo				*pieces_check(char *filename, int t_cnt)
+t_coo				*pieces_check(char *filename, int tetri_cnt)
 {
 	int				fd;
 	int				i;
@@ -121,7 +121,7 @@ t_coo				*pieces_check(char *filename, int t_cnt)
 
 	if (!(fd = open_sample(filename)))
 		return (0);
-	if (!(tetri_lst = (t_coo *)malloc(sizeof(t_coo) * t_cnt)))
+	if (!(tetri_lst = (t_coo *)malloc(sizeof(t_coo) * tetri_cnt)))
 	{
 		ft_putendl("error");
 		return (0);

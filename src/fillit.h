@@ -6,7 +6,7 @@
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 17:23:25 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/10 20:30:22 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/10 21:41:42 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int					g_tetri_total;
 
 int					open_sample(char *filename);
 int					format_check(char *filename);
-int					pieces_check(char *filename, int tetri_cnt);
+int					pieces_check(char *filename);
 t_coo				fill_tetri_coo(char *tetri);
 char				**create_square(int nb_tetri);
 int					ft_sqrt_up(int n);

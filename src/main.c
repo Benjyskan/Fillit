@@ -6,7 +6,7 @@
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 17:32:08 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/10 21:49:57 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/10 22:04:49 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,8 @@ int					main(int ac, char **av)
 		ft_putendl_fd("usage: ./fillit filename", 1);
 		return (1);
 	}
-	if (!format_check(av[1]))
-	{
-		ft_putendl("error");
+	if (!check_file(av[1]))
 		return (1);
-	}
 printf("%d\n", g_tetri_total);
 	len = ft_sqrt_up(g_tetri_total * 4);
 	table.len = &len;

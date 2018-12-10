@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 20:50:33 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/10 18:47:50 by penzo            ###   ########.fr       */
+/*   Updated: 2018/12/10 20:26:26 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,29 +51,27 @@ int					format_check(char *filename)
 {
 	int				y;
 	int				fd;
-	int				tetri_cnt;
 	char			buff[21];
 
 	if (!(fd = open_sample(filename)))
 		return (0);
-	tetri_cnt = 0;
 	while ((y = read(fd, buff, 21)) > 0)
 	{
 		if (y == 20)
 		{
 			if (!bloc_cnt(buff))
 				return (0);
-			tetri_cnt++;
+			g_tetri_total++;
 			break ;
 		}
 		if (buff[20] != '\n')
 			return (0);
 		if (!bloc_cnt(buff))
 			return (0);
-		tetri_cnt++;
+		g_tetri_total++;
 	}
 	close(fd);
-	return (y == 20 ? tetri_cnt : 0);
+	return (1);
 }
 
 /*
@@ -118,7 +116,7 @@ int					pieces_check(char *filename, int tetri_cnt)
 	int				i;
 	char			buff[21];
 	//t_coo			*tetri_lst;//no need since it is a global now
-
+	
 	if (!(fd = open_sample(filename)))
 		return (0);
 	if (!(g_tetri_lst = (t_coo *)malloc(sizeof(t_coo) * tetri_cnt)))

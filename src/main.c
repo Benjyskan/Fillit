@@ -6,7 +6,7 @@
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 17:32:08 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/10 22:41:09 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/10 22:57:12 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int					main(int ac, char **av)
 
 	if (ac != 2)
 	{
-		ft_putendl_fd("usage: ./fillit filename", 1);
+		ft_putendl("usage: ./fillit filename");
 		return (1);
 	}
 	if (!check_file(av[1]))

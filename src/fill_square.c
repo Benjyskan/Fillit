@@ -6,7 +6,7 @@
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 12:54:58 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/10 22:56:07 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/10 23:00:34 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static int		is_tetri_placeable(t_coo lst, int x, int y, t_table table)
 	return (1);
 }
 
-int				*delete_tetri(t_table table, int c)
+static int		*delete_tetri(t_table table, int c)
 {
 	int			x;
 	int			y;
@@ -113,7 +113,7 @@ void				fill_square(t_coo *lst, t_table table, int total)
 	//delete_tetri(tab, (int)'A', *len);
 }*/
 
-void			print_tetri(t_table table, int x, int y, t_coo tetri)
+static void		print_tetri(t_table table, int x, int y, t_coo tetri)
 {
 	int			bloc_cnt;
 

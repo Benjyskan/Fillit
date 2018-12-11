@@ -6,20 +6,19 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/15 11:06:32 by amalsago          #+#    #+#              #
-#    Updated: 2018/12/11 13:30:14 by amalsago         ###   ########.fr        #
+#    Updated: 2018/12/11 15:26:36 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # **************************************************************************** #
-#
 # Compilator and flags
 CC			=	gcc
 CFLAGS		=	-Wall -Wextra -Werror
 
 # **************************************************************************** #
 # System commands :
-RM			=	/bin/rm -rf
-MKDIR		=	mkdir
+RM			=	rm -rf
+MKDIR		=	mkdir -p
 MAKE		=	make -C
 
 # **************************************************************************** #
@@ -55,23 +54,24 @@ LIB			=	$(addprefix $(LIBDIR)/, $(LIB_NAME))
 # Rules :
 
 all: $(NAME)
+
 $(NAME): $(LIB) $(OBJ)
-	$(CC) $(LIB) $^ -o $@ 
+	$(CC) $^ -o $@ 
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
-	@$(MKDIR) $(OBJDIR) 2> /dev/null || true
+	$(MKDIR) $(OBJDIR)
 	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
 
 $(LIB):
 	$(MAKE) $(LIBDIR) fclean && $(MAKE) $(LIBDIR)
 
 clean:
-	@$(RM) $(OBJ)
-	@$(RM) $(OBJDIR) 2> /dev/null || true
+	$(RM) $(OBJ)
+	$(RM) $(OBJDIR) 2> /dev/null || true
 
 fclean: clean
-	@$(MAKE) $(LIBDIR) fclean 
-	@$(RM) $(NAME)
+	$(MAKE) $(LIBDIR) fclean 
+	$(RM) $(NAME)
 
 re: fclean all
 

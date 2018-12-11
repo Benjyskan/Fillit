@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 12:55:42 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/10 22:24:55 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/11 20:15:18 by penzo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ char			**create_square(int len)
 	i = -1;
 	while (++i < len)
 	{
-		if (!(tab[i] = (char*)malloc(sizeof(char) * len)))
+		if (!(tab[i] = (char*)malloc(sizeof(char) * len + 1)))
 		{
 			while (i-- > 0)
 			{
@@ -68,6 +68,7 @@ char			**create_square(int len)
 
 void			resize_square(char ***tab, int *len)
 {
+	printf("resizing\n");
 	free(*tab);
 	*len += 1;
 	*tab = create_square(*len);

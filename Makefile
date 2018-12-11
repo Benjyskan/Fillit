@@ -6,14 +6,14 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/15 11:06:32 by amalsago          #+#    #+#              #
-#    Updated: 2018/12/11 15:26:36 by amalsago         ###   ########.fr        #
+#    Updated: 2018/12/11 19:56:12 by penzo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # **************************************************************************** #
 # Compilator and flags
 CC			=	gcc
-CFLAGS		=	-Wall -Wextra -Werror
+CFLAGS		=	-Wall -Wextra -Werror -g 
 
 # **************************************************************************** #
 # System commands :
@@ -58,6 +58,9 @@ all: $(NAME)
 $(NAME): $(LIB) $(OBJ)
 	$(CC) $^ -o $@ 
 
+debug:
+	$(CC) $(SRC) -fsanitize=address -g3 $(CPPFLAGS) $(LIB)
+
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	$(MKDIR) $(OBJDIR)
 	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
@@ -77,3 +80,5 @@ re: fclean all
 
 norm:
 	norminette $(SRCDIR) $(INCDIR) $(LIBDIR)
+
+.PHONY: all clean fclean re norm

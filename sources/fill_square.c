@@ -6,7 +6,7 @@
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 12:54:58 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/11 15:23:54 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/11 20:00:38 by penzo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +129,7 @@ void			place_tetri(t_table table, int x, int y, t_coo tetri)
 	static int	i = 0;
 
 	//printf("%d HEY\n\n", i);
-	if (i == g_tetri_total)
+	if (i >= g_tetri_total)//
 	{
 		//printf("BRAVO !!!!!!!!!!!!!!!!");
 		return ;//solved: print table
@@ -148,8 +148,14 @@ void			place_tetri(t_table table, int x, int y, t_coo tetri)
 		place_tetri(table, 0, y + 1, g_tetri_lst[i]);
 	if (x == *(table.len) - 1 && y == *(table.len) - 1)
 	{
-		//printf("ICI tetri:%d\n", i);
+		printf("tetri: %d, end of table\n", i+1);
 		i--;
+		if (i < 0)
+		{
+			i = 0;
+			resize_square(table.tab, table.len);
+			place_tetri(table, 0, 0, g_tetri_lst[i]);
+		}
 		last_pos = delete_tetri(table, g_tetri_lst[i].c);
 		//printf("last_pos: %d, %d\n", last_pos[0], last_pos[1]);
 		//printf("x: %d, y: %d, tab.len: %d\n", x, y, *(table.len));

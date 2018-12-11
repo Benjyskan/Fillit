@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/15 11:06:32 by amalsago          #+#    #+#              #
-#    Updated: 2018/12/11 13:26:16 by amalsago         ###   ########.fr        #
+#    Updated: 2018/12/11 13:27:11 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,6 +49,7 @@ SRC_NAME	=	main.c				\
 SRC			=	$(addprefix $(SRCDIR)/, $(SRC_NAME))
 OBJ 		=	$(addprefix $(OBJDIR)/, $(SRC_NAME:.c=.o))
 LIB			=	$(addprefix $(LIBDIR)/, $(LIB_NAME))
+
 # **************************************************************************** #
 # Rules :
 

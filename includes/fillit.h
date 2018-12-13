@@ -6,7 +6,7 @@
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 17:23:25 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/10 23:02:27 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/13 11:36:39 by penzo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,6 @@ void				resize_square(char ***tab, int *len);
 t_coo				fill_tetri_coo(char *tetri);
 void				fill_square(t_coo *lst, t_table table, int total);
 void				place_tetri(t_table table, int x, int y, t_coo tetri);
+void    			print_map(t_table tab);
 
 #endif

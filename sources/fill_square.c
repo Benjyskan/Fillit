@@ -6,7 +6,7 @@
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 12:54:58 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/11 20:00:38 by penzo            ###   ########.fr       */
+/*   Updated: 2018/12/13 11:40:11 by penzo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,7 +127,9 @@ void			place_tetri(t_table table, int x, int y, t_coo tetri)
 {
 	int			*last_pos;
 	static int	i = 0;
+	static int	k = 0;//
 
+	printf("%dnd call\n", k++);
 	//printf("%d HEY\n\n", i);
 	if (i >= g_tetri_total)//
 	{
@@ -137,6 +139,7 @@ void			place_tetri(t_table table, int x, int y, t_coo tetri)
 	//if (is_tetri_placeable(g_tetri_lst[i], x, y, table))
 	if (is_tetri_placeable(tetri, x, y, table))
 	{
+		print_map(table);
 		//printf("print %d tetri on: %d, %d\n", i, x, y);
 		print_tetri(table, x, y, g_tetri_lst[i++]);
 		place_tetri(table, 0, 0, g_tetri_lst[i]);

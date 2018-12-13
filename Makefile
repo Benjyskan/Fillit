@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/15 11:06:32 by amalsago          #+#    #+#              #
-#    Updated: 2018/12/11 19:56:12 by penzo            ###   ########.fr        #
+#    Updated: 2018/12/13 11:36:55 by penzo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,8 @@ SRC_NAME	=	main.c				\
 				open_sample.c		\
 				create_square.c		\
 				ft_sqrt_up.c		\
-				fill_square.c
+				fill_square.c		\
+				print_map.c
 
 # **************************************************************************** #
 # Automatic variables where are listed the names of sources and objects files :

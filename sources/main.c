@@ -6,7 +6,7 @@
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 17:32:08 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/11 19:22:13 by penzo            ###   ########.fr       */
+/*   Updated: 2018/12/13 11:36:31 by penzo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int					main(int ac, char **av)
 {
 	int				len;
-	int				i = 0;
+	//int				i = 0;
 	char			**tmp;
 	t_table			table;
 
@@ -38,10 +38,11 @@ int					main(int ac, char **av)
 	place_tetri(table, 0, 0, g_tetri_lst[0]);
 	printf("length : %d\n", len);
 	printf("table len:%d\n", *(table.len));
-	while (i < len)
+	/*while (i < len)
 	{
 		printf("%s\n", table.tab[0][i]);
 		i++;
-	}
+	}*/
+	print_map(table);
 	return (0);
 }

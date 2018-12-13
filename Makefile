@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/15 11:06:32 by amalsago          #+#    #+#              #
-#    Updated: 2018/12/13 11:36:55 by penzo            ###   ########.fr        #
+#    Updated: 2018/12/13 16:02:58 by penzo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,7 +60,7 @@ $(NAME): $(LIB) $(OBJ)
 	$(CC) $^ -o $@ 
 
 debug:
-	$(CC) $(SRC) -fsanitize=address -g3 $(CPPFLAGS) $(LIB)
+	$(CC) $(SRC) -o $(NAME) -fsanitize=address -g3 $(CPPFLAGS) $(LIB)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	$(MKDIR) $(OBJDIR)

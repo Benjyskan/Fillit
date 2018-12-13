@@ -6,7 +6,7 @@
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 17:23:25 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/13 11:36:39 by penzo            ###   ########.fr       */
+/*   Updated: 2018/12/13 17:49:30 by penzo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@
 
 typedef struct		s_table
 {
-	char			***tab;
-	int				*len;
+	char			**tab;
+	int				len;
 }					t_table;
 
 typedef struct		s_xy
@@ -48,10 +48,10 @@ int					open_sample(char *filename);
 int					check_file(char *filename);
 int					ft_sqrt_up(int n);
 char				**create_square(int nb_tetri);
-void				resize_square(char ***tab, int *len);
+void				resize_square(t_table *table);
 t_coo				fill_tetri_coo(char *tetri);
-void				fill_square(t_coo *lst, t_table table, int total);
-void				place_tetri(t_table table, int x, int y, t_coo tetri);
-void    			print_map(t_table tab);
+void				fill_square(t_coo *lst, t_table *table, int total);
+void				place_tetri(t_table *table, int x, int y, t_coo *tetri);
+void    			print_map(t_table *tab);
 
 #endif

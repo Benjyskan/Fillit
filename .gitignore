@@ -13,6 +13,7 @@ fillit
 
 # Swp files
 *.swp
+*.swo
 
 # Precompiled header
 *.h.gch

@@ -6,7 +6,7 @@
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 12:54:58 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/16 14:11:44 by penzo            ###   ########.fr       */
+/*   Updated: 2018/12/16 19:05:12 by penzo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,14 @@ static int		is_tetri_placeable(t_table *table,  int x, int y, int tetr_index)
 	return (1);
 }
 
-static void		delete_tetri(t_table *table, int c)
+static t_pnt	delete_tetri(t_table *table, int c)
 {
 	int			x;
 	int			y;
+	int			is_first;
+	t_pnt		last_pos;
 
+	is_first = 0;
 	y = -1;
 	while (++y < table->len)
 	{
@@ -57,14 +60,19 @@ static void		delete_tetri(t_table *table, int c)
 			if (table->tab[y][x] == (char)c)
 			{
 				table->tab[y][x] = '.';
+				if (!is_first++)
+				{
+					last_pos.x = x;
+					last_pos.y = y;
+				}
 			}
 		}
 	}
+	return (last_pos);
 }
 
 static void		print_tetri(t_table *table, int x, int y, int tetri_index)
 {
-	printf("table_ad: %p\n", table);
 	int			bloc_cnt;
 
 	bloc_cnt = -1;
@@ -87,33 +95,49 @@ void		coor_plus(t_pnt *coor, int len)
 	}
 }
 
-//ONGO
-static int	place_letter(t_table *table, int x, int y, int index)
+static int	place_letter(t_table *table, t_pnt *coor, int index)
 {
-	if (is_tetri_placeable(table, x, y, index))
+	while (table->tab[coor->y][coor->x] != '.')
 	{
-		print_tetri(table, x, y, index);
-		return (1);
+		if (coor->x >= table->len - 1 && coor->y >= table->len - 1)
+			return (0);
+		coor_plus(coor, table->len);
+	}
+	//while (coor.x < table->len - 1 && coor.y < table->len - 1)
+	while (!(coor->x >= table->len - 1 && coor->y >= table->len - 1))
+	{
+		if (is_tetri_placeable(table, coor->x, coor->y, index))
+		{
+			print_tetri(table, coor->x, coor->y, index);
+			return (1);
+		}
+		else
+			coor_plus(coor, table->len);
 	}
 	return (0);
 }
 
 int			try_map(t_table *table, t_pnt *coor, int index)
 {
+	t_pnt	last_pos;
 	if (index >= g_tetri_total)
 		return (1);
-	if (coor->x == table->len - 1 && coor->y == table->len - 1)//
+	if (coor->x >= table->len - 1 && coor->y >= table->len - 1)//
 		return (0);//
 	//if (is_tetri_placeable(table, coor->x, coor->y, index))
-	if (is_tetri_placeable(table, coor->x, coor->y, index))
+	if (place_letter(table, coor, index))
 	{
-		print_tetri(table , coor->x, coor->y, index);
+		coor->x = 0;
+		coor->y = 0;
 		if (try_map(table, coor, ++index))
 			return (1);
-		delete_tetri(table, g_tetri_lst[index].c);
-		coor_plus(coor, table->len);
-		//while (table->map[coor->y][coor->x] != '.'//a voir plus tard
-		return (try_map(table, coor, index));
+		last_pos = delete_tetri(table, g_tetri_lst[--index].c);
+		coor_plus(&last_pos, table->len);
+		/*while (table->tab[coor->y][coor->x] != '.'
+		  && (coor->x < table->len - 1 && coor->y < table->len - 1))
+		  coor_plus(coor, table->len);*/
+		return (try_map(table, &last_pos, index));
+		//return (try_map(table, coor, index));
 	}
 	return (0);
 }
@@ -121,10 +145,12 @@ int			try_map(t_table *table, t_pnt *coor, int index)
 void		fillit(t_table *table, t_pnt *coor)
 {
 	//if (i >= g_tetri_total)
-		//return ;
+	//return ;
 	if (try_map(table, coor, 0))
 		return ;
 	resize_square(table);
+	coor->x = 0;
+	coor->y = 0;
 	fillit(table, coor);
 	return ;
 }

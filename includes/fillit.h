@@ -6,7 +6,7 @@
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 17:23:25 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/13 17:49:30 by penzo            ###   ########.fr       */
+/*   Updated: 2018/12/16 13:42:59 by penzo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,12 @@ typedef struct		s_xy
 	int				original;
 }					t_xy;
 
+typedef struct		s_pnt
+{
+	int				x;
+	int				y;
+}					t_pnt;
+
 typedef struct		s_coo
 {
 	struct s_xy		p[4];
@@ -51,7 +57,8 @@ char				**create_square(int nb_tetri);
 void				resize_square(t_table *table);
 t_coo				fill_tetri_coo(char *tetri);
 void				fill_square(t_coo *lst, t_table *table, int total);
-void				place_tetri(t_table *table, int x, int y, t_coo *tetri);
+void				place_tetri(t_table *table, t_pnt *coor);
 void    			print_map(t_table *tab);
+void        		fillit(t_table *table, t_pnt *coor);
 
 #endif

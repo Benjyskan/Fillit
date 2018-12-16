@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 12:55:42 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/13 12:44:27 by penzo            ###   ########.fr       */
+/*   Updated: 2018/12/15 14:44:25 by penzo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,14 @@ char			**create_square(int len)
 //void			resize_square(char ***tab, int *len)
 void			resize_square(t_table *table)
 {
-	printf("resizing\n");
+	int		i;
+
+	ft_putendl("resizing");
+	i = -1;
+	while (++i < table->len)
+		free(table->tab[i]);
 	free(table->tab);
 	table->len += 1;
 	table->tab = create_square(table->len);
-	printf("end resizing\n");
+	ft_putendl("end resizing");
 }

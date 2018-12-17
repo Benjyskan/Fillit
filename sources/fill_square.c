@@ -6,7 +6,7 @@
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 12:54:58 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/17 09:29:26 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/17 09:57:06 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,9 +98,9 @@ static int	place_letter(t_table *table, t_pnt *coor, int index)
 	return (0);
 }
 
-static int			try_map(t_table *table, t_pnt *coor, int index)
+static int		try_map(t_table *table, t_pnt *coor, int index)
 {
-	t_pnt			last_pos;
+	t_pnt		last_pos;
 
 	if (index >= g_tetri_total)
 		return (1);
@@ -123,10 +123,8 @@ static int			try_map(t_table *table, t_pnt *coor, int index)
 	return (0);
 }
 
-void				fillit(t_table *table, t_pnt *coor)
+void			fillit(t_table *table, t_pnt *coor)
 {
-	//if (i >= g_tetri_total)
-	//	return ;
 	if (try_map(table, coor, 0))
 		return ;
 	resize_square(table);

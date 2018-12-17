@@ -6,14 +6,14 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/15 11:06:32 by amalsago          #+#    #+#              #
-#    Updated: 2018/12/17 12:27:25 by amalsago         ###   ########.fr        #
+#    Updated: 2018/12/17 16:27:52 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # **************************************************************************** #
 # Compilator and flags
 CC			=	gcc
-CFLAGS		=	-Wall -Wextra -Werror -g
+CFLAGS		=	-Wall -Wextra -Werror
 
 # **************************************************************************** #
 # System commands :
@@ -41,7 +41,7 @@ SRC_NAME	=	main.c				\
 				fill_tetri_coo.c	\
 				create_square.c		\
 				fill_square.c		\
-				print_map.c			\
+				print_map_tetri.c	\
 				utils.c
 # **************************************************************************** #
 # Automatic variables where are listed the names of sources and objects files :
@@ -70,6 +70,7 @@ $(LIB):
 clean:
 	$(RM) $(OBJ)
 	$(RM) $(OBJDIR) 2> /dev/null || true
+	$(MAKE) $(LIBDIR) clean
 
 fclean: clean
 	$(MAKE) $(LIBDIR) fclean 

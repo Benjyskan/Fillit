@@ -6,16 +6,16 @@
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 17:32:08 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/17 15:00:52 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/17 16:25:15 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int					main(int ac, char **av)
+int				main(int ac, char **av)
 {
-	t_table			table;
-	t_pnt			coor;
+	t_table		table;
+	t_pnt		coor;
 
 	if (ac != 2)
 	{

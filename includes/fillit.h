@@ -6,7 +6,7 @@
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 17:23:25 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/17 08:52:35 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/17 09:27:09 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,7 @@ void				place_tetri(t_table *table, t_pnt *coor);
 void    			print_map(t_table *tab);
 void        		fillit(t_table *table, t_pnt *coor);
 void				freellit(t_table *table);
+void				coor_plus(t_pnt *coor, int len);
+void				coor_reset(t_pnt *coor);
 
 #endif

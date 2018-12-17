@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 09:16:48 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/17 09:46:30 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/17 09:51:59 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,4 @@ void		freellit(t_table *table)
 	}
 	free(table->tab);
 	table->tab = NULL;
-
+}

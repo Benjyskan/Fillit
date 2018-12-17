@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 20:50:33 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/17 18:18:59 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/17 20:42:11 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,7 @@ static int			pieces_check(char *filename)
 		g_tetri_lst[i].c = i + 'A';
 		i++;
 	}
-	close(fd);
-	return (1);
+	return ((close(fd) == -1) ? -1 : 1);
 }
 
 /*
@@ -117,7 +116,9 @@ static int			format_check(char *filename)
 	char			buff[21];
 
 	if ((fd = open(filename, O_RDONLY)) == -1)
-		return (fd);
+		return (-1);
+	if (read(fd, buff, 0) == -1)
+		return (-1);
 	while ((y = read(fd, buff, 21)) > 0)
 	{
 		if (y < 20)
@@ -133,7 +134,8 @@ static int			format_check(char *filename)
 			return (0);
 		g_tetri_total++;
 	}
-	close(fd);
+	if (close(fd) == -1)
+		return (-1);
 	return (g_tetri_total < 27 ? 1 : 0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 12:54:58 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/17 09:57:06 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/17 10:06:51 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,7 @@ static int		is_tetri_placeable(t_table *table, int x, int y, int index)
 				+ g_tetri_lst[index].p[bloc_cnt].x] == '.')
 			bloc_cnt++;
 		else
-		{
 			return (0);
-		}
 	}
 	return (1);
 }
@@ -46,8 +44,8 @@ static t_pnt	delete_tetri(t_table *table, int c)
 	int			is_first;
 	t_pnt		last_pos;
 
-	is_first = 0;
 	y = -1;
+	is_first = 0;
 	while (++y < table->len)
 	{
 		x = -1;

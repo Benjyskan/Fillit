@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 20:50:33 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/16 19:27:54 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/17 09:12:24 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static int			pieces_check(char *filename)
 	while (read(fd, buff, 21) > 0)
 	{
 		buff[20] = 0;
-		if (!isvalid_tetri(buff))//free les precedent tetri si fail
+		if (!isvalid_tetri(buff))
 			return (0);
 		g_tetri_lst[i] = fill_tetri_coo(buff);
 		g_tetri_lst[i].c = i + 65;
@@ -130,7 +130,7 @@ static int			format_check(char *filename)
 			break ;
 		}
 		if (buff[20] != '\n')
-		return (0);
+			return (0);
 		if (!bloc_cnt(buff))
 			return (0);
 		g_tetri_total++;

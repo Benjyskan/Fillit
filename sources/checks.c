@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 20:50:33 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/17 15:26:11 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/17 18:18:59 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,8 +118,6 @@ static int			format_check(char *filename)
 
 	if ((fd = open(filename, O_RDONLY)) == -1)
 		return (fd);
-	if (read(fd, buff, 0) < 0)
-		return (0);
 	while ((y = read(fd, buff, 21)) > 0)
 	{
 		if (y < 20)

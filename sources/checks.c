@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 20:50:33 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/17 09:12:24 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/17 12:33:00 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,12 @@ static int			isvalid_tetri(char *tetri)
 
 static int			pieces_check(char *filename)
 {
-	int				fd;
 	int				i;
+	int				fd;
 	char			buff[21];
 
-	if (!(fd = open_sample(filename)))
-		return (0);
+	if ((fd = open(filename, O_RDONLY)) == -1)
+		return (fd);
 	if (!(g_tetri_lst = (t_coo *)malloc(sizeof(t_coo) * g_tetri_total)))
 	{
 		ft_putendl("error");
@@ -116,8 +116,8 @@ static int			format_check(char *filename)
 	int				fd;
 	char			buff[21];
 
-	if (!(fd = open_sample(filename)))
-		return (0);
+	if ((fd = open(filename, O_RDONLY)) == -1)
+		return (fd);
 	while ((y = read(fd, buff, 21)) > 0)
 	{
 		if (y < 20)
@@ -147,7 +147,7 @@ static int			format_check(char *filename)
 
 int					check_file(char *filename)
 {
-	if (format_check(filename) == 0 || pieces_check(filename) == 0)
+	if (format_check(filename) <= 0 || pieces_check(filename) <= 0)
 	{
 		ft_putendl("error");
 		return (0);

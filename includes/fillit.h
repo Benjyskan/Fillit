@@ -6,20 +6,12 @@
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 17:23:25 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/17 12:27:35 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/17 14:54:05 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILLIT_H
 # define FILLIT_H
-
-/*
-**❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️
-** A SUPPRIMER LE stdio.h
-**❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️❗️
-*/
-
-# include <stdio.h>
 # include <fcntl.h>
 # include "../libft/libft.h"
 
@@ -58,9 +50,8 @@ void				resize_square(t_table *table);
 t_coo				fill_tetri_coo(char *tetri);
 void				fill_square(t_coo *lst, t_table *table, int total);
 void				place_tetri(t_table *table, t_pnt *coor);
-void    			print_map(t_table *tab);
-void        		fillit(t_table *table, t_pnt *coor);
-
+void				print_map(t_table *tab);
+void				fillit(t_table *table, t_pnt *coor);
 /*
 ** utils.c
 */

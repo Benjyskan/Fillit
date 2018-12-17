@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/15 11:06:32 by amalsago          #+#    #+#              #
-#    Updated: 2018/12/17 09:33:18 by amalsago         ###   ########.fr        #
+#    Updated: 2018/12/17 09:47:10 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,7 @@ SRC_NAME	=	main.c				\
 				fill_square.c		\
 				print_map.c			\
 				freellit.c			\
-				fillit_utils.c
+				utils.c
 # **************************************************************************** #
 # Automatic variables where are listed the names of sources and objects files :
 SRC			=	$(addprefix $(SRCDIR)/, $(SRC_NAME))

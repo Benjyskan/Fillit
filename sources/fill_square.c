@@ -6,7 +6,7 @@
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 12:54:58 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/17 10:06:51 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/17 16:05:27 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,17 +65,7 @@ static t_pnt	delete_tetri(t_table *table, int c)
 	return (last_pos);
 }
 
-static void		print_tetri(t_table *table, int x, int y, int index)
-{
-	int			bloc_cnt;
-
-	bloc_cnt = -1;
-	while (++bloc_cnt < 4)
-		table->tab[y + g_tetri_lst[index].p[bloc_cnt].y]
-			[x + g_tetri_lst[index].p[bloc_cnt].x] = g_tetri_lst[index].c;
-}
-
-static int	place_letter(t_table *table, t_pnt *coor, int index)
+static int		place_letter(t_table *table, t_pnt *coor, int index)
 {
 	while (table->tab[coor->y][coor->x] != '.')
 	{
@@ -111,11 +101,6 @@ static int		try_map(t_table *table, t_pnt *coor, int index)
 			return (1);
 		last_pos = delete_tetri(table, g_tetri_lst[--index].c);
 		coor_plus(&last_pos, table->len);
-		/*
-		while (table->tab[coor->y][coor->x] != '.'
-		  && (coor->x < table->len - 1 && coor->y < table->len - 1))
-		  coor_plus(coor, table->len);
-		*/
 		return (try_map(table, &last_pos, index));
 	}
 	return (0);

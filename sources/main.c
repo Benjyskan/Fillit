@@ -6,7 +6,7 @@
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 17:32:08 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/16 19:06:12 by penzo            ###   ########.fr       */
+/*   Updated: 2018/12/17 09:08:20 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ int					main(int ac, char **av)
 	fillit(&table, &coor);
 	//printf("Last main\n");
 	print_map(&table);
+	freellit(&table);
 	return (0);
 }

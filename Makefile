@@ -6,14 +6,14 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/15 11:06:32 by amalsago          #+#    #+#              #
-#    Updated: 2018/12/13 16:02:58 by penzo            ###   ########.fr        #
+#    Updated: 2018/12/16 19:58:35 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # **************************************************************************** #
 # Compilator and flags
 CC			=	gcc
-CFLAGS		=	-Wall -Wextra -Werror -g 
+CFLAGS		=	-Wall -Wextra -Werror -g
 
 # **************************************************************************** #
 # System commands :
@@ -43,8 +43,8 @@ SRC_NAME	=	main.c				\
 				create_square.c		\
 				ft_sqrt_up.c		\
 				fill_square.c		\
-				print_map.c
-
+				print_map.c			\
+				freellit.c
 # **************************************************************************** #
 # Automatic variables where are listed the names of sources and objects files :
 SRC			=	$(addprefix $(SRCDIR)/, $(SRC_NAME))

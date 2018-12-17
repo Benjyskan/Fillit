@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/15 11:06:32 by amalsago          #+#    #+#              #
-#    Updated: 2018/12/17 09:51:15 by amalsago         ###   ########.fr        #
+#    Updated: 2018/12/17 12:27:25 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,6 @@ LIBDIR		=	./libft
 SRC_NAME	=	main.c				\
 				checks.c			\
 				fill_tetri_coo.c	\
-				open_sample.c		\
 				create_square.c		\
 				fill_square.c		\
 				print_map.c			\

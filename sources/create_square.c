@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 12:55:42 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/17 09:10:42 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/17 11:14:59 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ static void		initialise(char ***tab, int len)
 
 char			**create_square(int len)
 {
-	char		**tab;
 	int			i;
+	char		**tab;
 
 	if (!(tab = (char**)malloc(sizeof(char*) * len)))
 		return (NULL);
@@ -68,7 +68,7 @@ char			**create_square(int len)
 
 void			resize_square(t_table *table)
 {
-	int		i;
+	int			i;
 
 	i = -1;
 	while (++i < table->len)

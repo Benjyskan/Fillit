@@ -6,7 +6,7 @@
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 17:23:25 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/17 09:48:02 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/17 12:27:35 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 */
 
 # include <stdio.h>
+# include <fcntl.h>
 # include "../libft/libft.h"
 
 typedef struct		s_table
@@ -50,7 +51,6 @@ typedef struct		s_coo
 t_coo				*g_tetri_lst;
 int					g_tetri_total;
 
-int					open_sample(char *filename);
 int					check_file(char *filename);
 int					ft_sqrt_up(int n);
 char				**create_square(int nb_tetri);

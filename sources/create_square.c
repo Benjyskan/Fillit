@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 12:55:42 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/16 19:05:49 by penzo            ###   ########.fr       */
+/*   Updated: 2018/12/17 09:10:42 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ char			**create_square(int len)
 ** Resize square with adding a new row and column
 */
 
-//void			resize_square(char ***tab, int *len)
 void			resize_square(t_table *table)
 {
 	int		i;

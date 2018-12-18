@@ -6,7 +6,7 @@
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 17:32:08 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/18 17:47:50 by penzo            ###   ########.fr       */
+/*   Updated: 2018/12/18 19:23:40 by penzo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int				main(int ac, char **av)
 {
 	t_table		table;
+	t_tetri		tetri;
 	t_pnt		coor;
 
 	if (ac != 2)
@@ -22,14 +23,15 @@ int				main(int ac, char **av)
 		ft_putendl("usage: ./fillit filename");
 		return (1);
 	}
-	if (check_file(av[1]) <= 0)
+	if (check_file(av[1], &tetri) <= 0)
 		return (1);
 	coor_reset(&coor);
-	table.len = ft_sqrt_up(g_tetri_total * 4);
+	//table.len = ft_sqrt_up(g_tetri_total * 4);
+	table.len = ft_sqrt_up(tetri.total * 4);
 	if (!(table.tab = create_square(table.len)))
 		return (1);
-	fillit(&table, &coor);
+	fillit(&table, &coor, &tetri);
 	print_map(&table);
-	freellit(&table);
+	freellit(&table, &tetri);
 	return (0);
 }

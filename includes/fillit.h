@@ -6,7 +6,7 @@
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 17:23:25 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/18 18:01:43 by penzo            ###   ########.fr       */
+/*   Updated: 2018/12/18 19:12:17 by penzo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,16 @@ typedef struct		s_coo
 	int				c;
 }					t_coo;
 
-t_coo				*g_tetri_lst;
-int					g_tetri_total;
+typedef struct		s_tetri_lst
+{
+	int				total;
+	t_coo			*lst;
+}					t_tetri;
 
-int					check_file(char *filename);
+t_coo				*g_tetri_lst;//tejme
+int					g_tetri_total;//tejme
+
+int					check_file(char *filename, t_tetri *tetri);
 int					ft_sqrt_up(int n);
 char				**create_square(int nb_tetri);
 void				resize_square(t_table *table);
@@ -51,12 +57,13 @@ t_coo				fill_tetri_coo(char *tetri);
 void				fill_square(t_coo *lst, t_table *table, int total);
 void				place_tetri(t_table *table, t_pnt *coor);
 void				print_map(t_table *tab);
-void				print_tetri(t_table *table, t_pnt *coor, int index);
-void				fillit(t_table *table, t_pnt *coor);
+void				print_tetri(t_table *table, t_pnt *coor, int index,
+					t_tetri *tetri);
+void				fillit(t_table *table, t_pnt *coor, t_tetri *tetri);
 /*
 ** utils.c
 */
-void				freellit(t_table *table);
+void				freellit(t_table *table, t_tetri *tetri);
 void				coor_plus(t_pnt *coor, int len);
 void				coor_reset(t_pnt *coor);
 

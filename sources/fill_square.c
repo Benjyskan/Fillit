@@ -6,7 +6,7 @@
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 12:54:58 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/17 16:05:27 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/18 18:13:58 by penzo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,19 @@
 ** check if the character is '.' && on the table
 */
 
-static int		is_tetri_placeable(t_table *table, int x, int y, int index)
+static int		is_tetri_placeable(t_table *table, t_pnt *coor, int index)
 {
 	int			bloc_cnt;
 
 	bloc_cnt = 0;
 	while (bloc_cnt < 4)
 	{
-		if (x + g_tetri_lst[index].p[bloc_cnt].x >= 0
-				&& x + g_tetri_lst[index].p[bloc_cnt].x < table->len
-				&& y + g_tetri_lst[index].p[bloc_cnt].y >= 0
-				&& y + g_tetri_lst[index].p[bloc_cnt].y < table->len
-				&& table->tab[y + g_tetri_lst[index].p[bloc_cnt].y][x
-				+ g_tetri_lst[index].p[bloc_cnt].x] == '.')
+		if (coor->x + g_tetri_lst[index].p[bloc_cnt].x >= 0
+				&& coor->x + g_tetri_lst[index].p[bloc_cnt].x < table->len
+				&& coor->y + g_tetri_lst[index].p[bloc_cnt].y >= 0
+				&& coor->y + g_tetri_lst[index].p[bloc_cnt].y < table->len
+				&& table->tab[coor->y + g_tetri_lst[index].p[bloc_cnt].y]
+				[coor->x + g_tetri_lst[index].p[bloc_cnt].x] == '.')
 			bloc_cnt++;
 		else
 			return (0);
@@ -75,9 +75,9 @@ static int		place_letter(t_table *table, t_pnt *coor, int index)
 	}
 	while (!(coor->x >= table->len - 1 && coor->y >= table->len - 1))
 	{
-		if (is_tetri_placeable(table, coor->x, coor->y, index))
+		if (is_tetri_placeable(table, coor, index))
 		{
-			print_tetri(table, coor->x, coor->y, index);
+			print_tetri(table, coor, index);
 			return (1);
 		}
 		else

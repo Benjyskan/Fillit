@@ -17,3 +17,6 @@ fillit
 
 # Precompiled header
 *.h.gch
+
+# the no permission file
+no_go_zone

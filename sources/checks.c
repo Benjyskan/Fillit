@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 20:50:33 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/18 16:26:01 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/18 16:52:06 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,8 +119,6 @@ static int			format_check(char *filename)
 		return (-1);
 	while ((y = read(fd, buff, 21)) > 0)
 	{
-		if (y < 20)
-			return (0);
 		if (y == 20)
 		{
 			if (!bloc_cnt(buff))
@@ -128,7 +126,7 @@ static int			format_check(char *filename)
 			g_tetri_total++;
 			break ;
 		}
-		if (buff[20] != '\n' || !bloc_cnt(buff))
+		if (y < 20 || buff[20] != '\n' || !bloc_cnt(buff))
 			return (0);
 		g_tetri_total++;
 	}
@@ -136,7 +134,7 @@ static int			format_check(char *filename)
 		return (0);
 	if (close(fd) == -1)
 		return (-1);
-	return (g_tetri_total < 27 ? 1 : 0);
+	return (g_tetri_total != 0 && g_tetri_total < 27 ? 1 : 0);
 }
 
 /*
@@ -147,19 +145,6 @@ static int			format_check(char *filename)
 
 int					check_file(char *filename)
 {
-	int		fd;
-	char	buf[1];
-
-	if (!(fd = open(filename, O_RDONLY)))
-	{
-		ft_putendl("error");
-		return (-1);
-	}
-	if (read(fd, buf, 1) <= 0)
-	{
-		ft_putendl("error");
-		return (close(fd));
-	}
 	if (format_check(filename) <= 0 || pieces_check(filename) <= 0)
 	{
 		ft_putendl("error");

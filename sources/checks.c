@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 20:50:33 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/18 08:59:57 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/18 15:25:17 by penzo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,6 +145,19 @@ static int			format_check(char *filename)
 
 int					check_file(char *filename)
 {
+	int		fd;
+	char	buf[1];
+
+	if (!(fd = open(filename, O_RDONLY)))
+	{
+		ft_putendl("error");
+		return (-1);
+	}
+	if (read(fd, buf, 1) <= 0)
+	{
+		ft_putendl("error");
+		return (close(fd));
+	}
 	if (format_check(filename) <= 0 || pieces_check(filename) <= 0)
 	{
 		ft_putendl("error");

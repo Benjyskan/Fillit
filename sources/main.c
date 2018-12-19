@@ -6,7 +6,7 @@
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 17:43:20 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/19 17:54:14 by penzo            ###   ########.fr       */
+/*   Updated: 2018/12/19 18:07:06 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int				main(int ac, char **av)
 	if (ac != 2)
 	{
 		ft_putendl("usage: ./fillit filename");
-		exit (1);
+		exit(1);
 	}
 	if (check_file(av[1], &tetri) <= 0)
 		exit(freellit(&table, &tetri));

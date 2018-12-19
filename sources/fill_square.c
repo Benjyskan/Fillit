@@ -6,7 +6,7 @@
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 12:54:58 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/18 19:27:17 by penzo            ###   ########.fr       */
+/*   Updated: 2018/12/19 12:05:31 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 */
 
 static int		is_tetri_placeable(t_table *table, t_pnt *coor, int index,
-		t_tetri *tetri)
+				t_tetri *tetri)
 {
 	int			bloc_cnt;
 
@@ -67,7 +67,7 @@ static t_pnt	delete_tetri(t_table *table, int c)
 }
 
 static int		place_letter(t_table *table, t_pnt *coor, int index,
-		t_tetri *tetri)
+				t_tetri *tetri)
 {
 	while (table->tab[coor->y][coor->x] != '.')
 	{
@@ -80,7 +80,6 @@ static int		place_letter(t_table *table, t_pnt *coor, int index,
 		if (is_tetri_placeable(table, coor, index, tetri))
 		{
 			print_tetri(table, coor, index, tetri);
-			system("vmmap fillit");
 			return (1);
 		}
 		else
@@ -102,14 +101,13 @@ static int		try_map(t_table *table, t_pnt *coor, int index, t_tetri *tetri)
 		coor_reset(coor);
 		if (try_map(table, coor, ++index, tetri))
 			return (1);
-		//last_pos = delete_tetri(table, g_tetri_lst[--index].c);
 		last_pos = delete_tetri(table, tetri->lst[--index].c);
 		coor_plus(&last_pos, table->len);
 		return (try_map(table, &last_pos, index, tetri));
 	}
 	return (0);
 }
-//return int to protect the main ?
+
 void			fillit(t_table *table, t_pnt *coor, t_tetri *tetri)
 {
 	if (try_map(table, coor, 0, tetri))

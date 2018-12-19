@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 20:50:33 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/19 17:18:16 by penzo            ###   ########.fr       */
+/*   Updated: 2018/12/19 17:45:26 by penzo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ static int			pieces_check(char *filename, t_tetri *tetri)
 	if (!(tetri->lst = (t_coo *)malloc(sizeof(t_coo) * tetri->total)))
 	{
 		ft_putendl("error");
-		exit(freellit(NULL, tetri));
 		return (0);
 	}
 	i = 0;

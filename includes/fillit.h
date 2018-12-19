@@ -6,7 +6,7 @@
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 17:23:25 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/19 11:09:10 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/19 17:17:10 by penzo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void				fillit(t_table *table, t_pnt *coor, t_tetri *tetri);
 /*
 ** utils.c
 */
-void				freellit(t_table *table, t_tetri *tetri);
+int					freellit(t_table *table, t_tetri *tetri);
 void				coor_plus(t_pnt *coor, int len);
 void				coor_reset(t_pnt *coor);
 

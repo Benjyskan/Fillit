@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 09:16:48 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/18 19:21:16 by penzo            ###   ########.fr       */
+/*   Updated: 2018/12/19 17:20:52 by penzo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,18 +39,22 @@ void		coor_reset(t_pnt *coor)
 	coor->y = 0;
 }
 
-void		freellit(t_table *table, t_tetri *tetri)
+int			freellit(t_table *table, t_tetri *tetri)
 {
 	int		i;
 
 	i = -1;
-	free(tetri->lst);
+	if (tetri->lst)
+		free(tetri->lst);
 	tetri->lst = NULL;
 	while (++i < table->len)
 	{
-		free(table->tab[i]);
+		if (table->tab[i])
+			free(table->tab[i]);
 		table->tab[i] = NULL;
 	}
-	free(table->tab);
+	if (table->tab)
+		free(table->tab);
 	table->tab = NULL;
+	return (1);
 }

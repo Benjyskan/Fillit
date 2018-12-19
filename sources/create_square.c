@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 12:55:42 by amalsago          #+#    #+#             */
-/*   Updated: 2018/12/17 11:14:59 by amalsago         ###   ########.fr       */
+/*   Updated: 2018/12/19 12:05:03 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "fillit.h"
 
 /*
-** Initialise a tab with '.'
+** Initialise a map (table)  with '.'
 */
 
 static void		initialise(char ***tab, int len)

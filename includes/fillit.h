@@ -6,7 +6,7 @@
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 17:23:25 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/18 19:12:17 by penzo            ###   ########.fr       */
+/*   Updated: 2018/12/19 11:09:10 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,6 @@ typedef struct		s_tetri_lst
 	int				total;
 	t_coo			*lst;
 }					t_tetri;
-
-t_coo				*g_tetri_lst;//tejme
-int					g_tetri_total;//tejme
 
 int					check_file(char *filename, t_tetri *tetri);
 int					ft_sqrt_up(int n);

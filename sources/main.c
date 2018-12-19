@@ -6,7 +6,7 @@
 /*   By: penzo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 17:32:08 by penzo             #+#    #+#             */
-/*   Updated: 2018/12/18 19:23:40 by penzo            ###   ########.fr       */
+/*   Updated: 2018/12/19 12:05:58 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int				main(int ac, char **av)
 	if (check_file(av[1], &tetri) <= 0)
 		return (1);
 	coor_reset(&coor);
-	//table.len = ft_sqrt_up(g_tetri_total * 4);
 	table.len = ft_sqrt_up(tetri.total * 4);
 	if (!(table.tab = create_square(table.len)))
 		return (1);

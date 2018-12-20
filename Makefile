@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/15 11:06:32 by amalsago          #+#    #+#              #
-#    Updated: 2018/12/18 17:09:56 by penzo            ###   ########.fr        #
+#    Updated: 2018/12/19 18:11:55 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,4 +81,4 @@ re: fclean all
 norm:
 	norminette $(SRCDIR) $(INCDIR) $(LIBDIR)
 
-.PHONY: all clean fclean re norm
+.PHONY: all clean fclean re norm debug
